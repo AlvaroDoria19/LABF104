@@ -85,7 +85,7 @@ Las credenciales son **comunes por familia**: todos los equipos de una misma fam
 usuario y contraseña. La tabla también está en la ficha de cada equipo.
 
 | Familia | Equipos | Enable / Root | Acceso |
-|---|---|---|---|---|---|
+|---|---|---|---|
 | 🔵 **Routers Cisco** | `RT-C2503-01/02` · `RT-C2620-01/02` | `<enable secret>` | Consola · Telnet |
 | 🔵 **Switches Cisco** | `SW-C2900XL-01` · `SW-C2950-01` | `<enable secret>` | Consola · Telnet |
 | 🟢 **Switches 3Com** | `SW-3C4500G-01/02` · `SW-3C4210-01/02` | `<super nivel 3>` | Consola · Telnet · SSH¹ · Web |
