@@ -2,7 +2,7 @@
 
 [⬅️ Volver al inicio](../README.md) · [📇 Equipos](../equipos/README.md)
 
-> Vista de conjunto de los 17 equipos.
+> Vista de conjunto de los 19 equipos.
 > **El detalle de cada chasis está en su carpeta:** [`equipos/`](../equipos/README.md)
 
 ---
@@ -21,6 +21,7 @@
 | **Dell PowerConnect 7024** | 3 | L2/L3 | 24 GbE + 4 SFP | ⚠️ pendiente | ✅ | MSTP/PVSTP+ | RIP, OSPFv2/v3 | ✅ |
 | **Juniper EX2300-24T** | 2 | L2/L3 | 24 GbE + 4 SFP+ | Junos 18.1R3.3 | ✅ | RSTP/MSTP/VSTP | Estático, RIP, OSPF⚠️ | ✅ |
 | **Juniper SRX300** | 2 | L3–L7 | 6 GbE + 2 SFP | ⚠️ pendiente | ✅ | RSTP/MSTP | RIP, OSPF, BGP, IS-IS | — |
+| **TP-Link TL-MR3420** | 2 | L3 + WiFi | 4 LAN + 1 WAN + USB | LEDE 17.01 `git-19.167…` | ✅ | STP opcional | Sólo estático ⚠️ | ✅ (WPA2-Ent.) |
 
 ⚠️ Ver [datos pendientes](#-datos-pendientes-de-capturar) al final. El detalle de cada chasis está
 en su carpeta: [`equipos/`](../equipos/README.md)
@@ -44,6 +45,7 @@ Determina qué se puede actualizar y qué no. Es el dato que más condiciona el 
 | Dell PC7024 | — | — | — | ✅ **Doble imagen nativa** |
 | Juniper EX2300 | — | ⚠️ reducida | ⚠️ pendiente | ✅ *snapshot* en partición alterna |
 | Juniper SRX300 | — | — | — | ✅ *snapshot* en partición alterna |
+| TP-Link TL-MR3420 | ⚠️ 32 MB | ⚠️ **4 MB** | ⚠️ `df -h /overlay` | ❌ **No** (apenas caben paquetes) |
 
 > [!IMPORTANT]
 > **Los tres equipos con riesgo real son el Catalyst 2924-XL, el Cisco 2503 #1 y el 3Com 4210.**
@@ -68,6 +70,7 @@ Ordenado por prioridad de respaldo. **Los EOL sin distribución son los irreempl
 | 🟡 3 | Dell PC7024 | `.stk` ⚠️ | ⚠️ Probablemente no | ⚠️ Soporte de Dell |
 | 🟡 3 | Juniper EX2300 | `junos-arm-32-18.1R3.3.tgz` | ❌ No | ✅ Portal de Juniper (con cuenta) |
 | 🟡 3 | Juniper SRX300 | ⚠️ pendiente | ❌ No | ✅ Portal de Juniper (con cuenta) |
+| 🟢 4 | TP-Link TL-MR3420 | `lede-17.01.7-…-tl-mr3420-v1-…bin` | ❌ No | ✅ Archivo de descargas de OpenWRT |
 
 † Los dos Cisco 2503 **necesitan el transceptor AUI→RJ-45** para tener LAN, o bien sacar la imagen
 por `Serial0` usando un Cisco 2620 como pasarela.
@@ -90,7 +93,10 @@ por `Serial0` usando un Cisco 2620 como pasarela.
 | Virtual Chassis | Juniper EX2300 (los 2) | Dos switches gestionados como uno |
 | Firewall por zonas, NAT, IPsec | **Juniper SRX300** (los 2) | Túnel real entre las dos unidades |
 | Alta disponibilidad | Juniper SRX300 (los 2) | Chassis Cluster de 2 nodos |
-| Comparar 4 sintaxis de CLI | 2950 + 4500G + PC7024 + EX2300 | IOS vs Comware vs Dell vs Junos |
+| **WiFi: 802.11n, WPA2, AP/cliente, WDS** | **TP-Link TL-MR3420** (los 2) | Los **únicos equipos con radio** del laboratorio |
+| Router Linux: iptables, dnsmasq, UCI | TP-Link TL-MR3420 | Deja ver por dentro lo que hacen los Cisco y Juniper |
+| Conmutación por fallo a red móvil | TP-Link TL-MR3420 | Puerto USB para módem 3G/4G |
+| Comparar 5 sintaxis de CLI | 2950 + 4500G + PC7024 + EX2300 + MR3420 | IOS vs Comware vs Dell vs Junos vs Linux/UCI |
 
 ---
 
@@ -129,6 +135,15 @@ configurar el equipo equivocado:
 
 No asumas que una práctica que funciona en uno funciona en el otro.
 
+**Conflicto de direccionamiento a resolver.** `RT-MR3420-02` está en `192.168.1.1`, que es a la vez
+la dirección por defecto de OpenWRT **y** la del SRX300 con configuración de fábrica. Si ambos
+equipos se conectan a la misma red hay conflicto de IP. Además, los dos TP-Link están fuera del
+esquema `192.168.104.0/24` de gestión.
+
+**Software fuera de soporte en los TP-Link.** LEDE 17.01 dejó de recibir parches en 2019 y OpenWRT
+abandonó los equipos de 4/32 MB desde la 19.07. Funcionan bien para el laboratorio, pero **no deben
+exponerse a internet**.
+
 **Los dos Cisco 2620 tampoco están igual poblados:** el #1 reporta **10** puertos serie de baja
 velocidad y el #2 sólo **6**. Confírmalo con `show diag` antes de repartir las prácticas.
 
@@ -144,6 +159,7 @@ velocidad y el #2 sólo **6**. Confírmalo con `show diag` antes de repartir las
 | `SW-3C4500G-01/02` | Nombre del fichero `.bin` y nº de serie | `dir flash:/` · `display device manuinfo` |
 | `SW-C2900XL-01` · `SW-C2950-01` | Tamaño y espacio libre de flash | `dir flash:` |
 | `RT-C2620-02` | Nombre exacto de la imagen y flash libre | `show flash:` |
+| `RT-MR3420-01/02` | **Revisión de hardware** (v1/v2/v5) y espacio libre en flash | `ubus call system board` · `df -h /overlay` |
 | `SW-EX2300-01/02` | Nº de serie y licencias instaladas | `show chassis hardware` · `show system license` |
 | Todos | Ubicación física (rack / posición) | — |
 

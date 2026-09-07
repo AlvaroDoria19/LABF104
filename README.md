@@ -3,14 +3,14 @@
 > Inventario, fichas por equipo, planes de contingencia y chuletas de comandos del laboratorio F104
 > · Ingeniería en Telecomunicaciones.
 
-![Equipos](https://img.shields.io/badge/Equipos-17-blue) ![Fabricantes](https://img.shields.io/badge/Fabricantes-5-orange) ![Carpetas](https://img.shields.io/badge/Carpetas%20por%20chasis-17-green) ![Docs](https://img.shields.io/badge/Formato-Markdown-black)
+![Equipos](https://img.shields.io/badge/Equipos-19-blue) ![Fabricantes](https://img.shields.io/badge/Fabricantes-6-orange) ![Carpetas](https://img.shields.io/badge/Carpetas%20por%20chasis-19-green) ![Docs](https://img.shields.io/badge/Formato-Markdown-black)
 
 | Campo | Valor |
 |---|---|
 | **Laboratorio** | F104 |
 | **Responsable / Auxiliar** | `<tu nombre>` |
 | **Última actualización** | 2026-09-06 |
-| **Versión del documento** | 3.0 |
+| **Versión del documento** | 4.0 |
 
 ---
 
@@ -25,7 +25,7 @@
 | 🚨 [Contingencia general](docs/02-plan-contingencia.md) | Procedimientos comunes y servidor de rescate |
 | ⚡ [Chuleta general](docs/03-chuleta-comandos.md) | «Piedra Rosetta»: el mismo comando en las 4 CLI |
 | 📝 [Bitácora](docs/04-bitacora.md) | Incidencias, préstamos y mantenimiento |
-| 🏷️ [Etiquetas QR](etiquetas/README.md) | Hoja A4 lista para imprimir con los 17 códigos QR |
+| 🏷️ [Etiquetas QR](etiquetas/README.md) | Hoja A4 lista para imprimir con los 19 códigos QR |
 
 ---
 
@@ -34,14 +34,14 @@
 **Cada chasis tiene su propia carpeta** con cuatro documentos: ficha, características, chuleta de
 comandos y plan de contingencia. El **código QR** de cada equipo apunta a su carpeta.
 
-| 🟢 3Com | 🔵 Cisco | 🟡 Dell | 🟣 Juniper |
-|---|---|---|---|
-| [`SW-3C4500G-01`](equipos/SW-3C4500G-01/) | [`SW-C2900XL-01`](equipos/SW-C2900XL-01/) | [`SW-PC7024-01`](equipos/SW-PC7024-01/) | [`SW-EX2300-01`](equipos/SW-EX2300-01/) |
-| [`SW-3C4500G-02`](equipos/SW-3C4500G-02/) | [`SW-C2950-01`](equipos/SW-C2950-01/) | [`SW-PC7024-02`](equipos/SW-PC7024-02/) | [`SW-EX2300-02`](equipos/SW-EX2300-02/) |
-| [`SW-3C4210-01`](equipos/SW-3C4210-01/) | [`RT-C2503-01`](equipos/RT-C2503-01/) | [`SW-PC7024-03`](equipos/SW-PC7024-03/) | [`FW-SRX300-01`](equipos/FW-SRX300-01/) |
-| [`SW-3C4210-02`](equipos/SW-3C4210-02/) | [`RT-C2503-02`](equipos/RT-C2503-02/) | | [`FW-SRX300-02`](equipos/FW-SRX300-02/) |
-| | [`RT-C2620-01`](equipos/RT-C2620-01/) | | |
-| | [`RT-C2620-02`](equipos/RT-C2620-02/) | | |
+| 🟢 3Com | 🔵 Cisco | 🟡 Dell | 🟣 Juniper | 🟠 TP-Link |
+|---|---|---|---|---|
+| [`SW-3C4500G-01`](equipos/SW-3C4500G-01/) | [`SW-C2900XL-01`](equipos/SW-C2900XL-01/) | [`SW-PC7024-01`](equipos/SW-PC7024-01/) | [`SW-EX2300-01`](equipos/SW-EX2300-01/) | [`RT-MR3420-01`](equipos/RT-MR3420-01/) |
+| [`SW-3C4500G-02`](equipos/SW-3C4500G-02/) | [`SW-C2950-01`](equipos/SW-C2950-01/) | [`SW-PC7024-02`](equipos/SW-PC7024-02/) | [`SW-EX2300-02`](equipos/SW-EX2300-02/) | [`RT-MR3420-02`](equipos/RT-MR3420-02/) |
+| [`SW-3C4210-01`](equipos/SW-3C4210-01/) | [`RT-C2503-01`](equipos/RT-C2503-01/) | [`SW-PC7024-03`](equipos/SW-PC7024-03/) | [`FW-SRX300-01`](equipos/FW-SRX300-01/) | |
+| [`SW-3C4210-02`](equipos/SW-3C4210-02/) | [`RT-C2503-02`](equipos/RT-C2503-02/) | | [`FW-SRX300-02`](equipos/FW-SRX300-02/) | |
+| | [`RT-C2620-01`](equipos/RT-C2620-01/) | | | |
+| | [`RT-C2620-02`](equipos/RT-C2620-02/) | | | |
 
 ➡️ [Índice completo con modelo, SO e IP de cada equipo](equipos/README.md)
 
@@ -92,6 +92,7 @@ usuario y contraseña. La tabla también está en la ficha de cada equipo.
 | 🟡 **Switches Dell** | `SW-PC7024-01…03` | `<rellenar>` | `<rellenar>` | `<enable>` | Consola · SSH · Web |
 | 🟣 **Switches Juniper** | `SW-EX2300-01/02` | `root` + `<rellenar>` | `<rellenar>` | `<root>` | Consola · SSH · J-Web |
 | 🟣 **Firewalls Juniper** | `FW-SRX300-01/02` | `root` + `<rellenar>` | `<rellenar>` | `<root>` | Consola · SSH · J-Web |
+| 🟠 **Routers TP-Link (OpenWRT)** | `RT-MR3420-01/02` | `root` | `<rellenar>` | — (`root` es ya el superusuario) | SSH · LuCI (web) · telnet en *failsafe* |
 
 ¹ SSH disponible en el 4500G (Comware v5). En el 4210 ⚠️ por confirmar.
 
@@ -135,8 +136,9 @@ Se pierden y **dejan el equipo irrecuperable**. Anótalas aquí sí o sí.
 | 2 | Cisco 2620 | Router modular | L3 | IOS 12.2(27) IP Plus | [01](equipos/RT-C2620-01/) · [02](equipos/RT-C2620-02/) |
 | 3 | Dell PowerConnect 7024 | Switch gestionable | L2/L3 | ⚠️ pendiente | [01](equipos/SW-PC7024-01/) · [02](equipos/SW-PC7024-02/) · [03](equipos/SW-PC7024-03/) |
 | 2 | Juniper EX2300-24T | Switch gestionable | L2/L3 | Junos 18.1R3.3 | [01](equipos/SW-EX2300-01/) · [02](equipos/SW-EX2300-02/) |
+| 2 | TP-Link TL-MR3420 | Router inalámbrico (OpenWRT) | L3 | LEDE 17.01 `git-19.167…` | [01](equipos/RT-MR3420-01/) · [02](equipos/RT-MR3420-02/) |
 | 2 | Juniper SRX300 | Firewall / Router de servicios | L3–L7 | ⚠️ pendiente | [01](equipos/FW-SRX300-01/) · [02](equipos/FW-SRX300-02/) |
-| **17** | **Total de equipos** | | | | |
+| **19** | **Total de equipos** | | | | |
 
 ---
 
@@ -155,6 +157,10 @@ Todos los equipos del laboratorio usan los mismos parámetros:
 
 > ⚠️ Si la consola muestra caracteres corruptos, prueba `115200`: algunos gestores de arranque y el
 > ROMmon de Cisco cambian de velocidad.
+
+> ⚠️ **Los dos TP-Link TL-MR3420 no tienen consola externa**: su UART está dentro de la carcasa.
+> Se acceden por **SSH** y **LuCI**, y para recuperar la contraseña se usa el
+> [modo *failsafe*](equipos/RT-MR3420-01/plan-contingencia.md) por telnet.
 
 **Desde Windows 11** — usa PuTTY o Tera Term. Para encontrar el puerto COM:
 
@@ -191,6 +197,7 @@ ver [la tabla de renombrado](docs/01-comparativa.md#️-avisos-transversales-del
 | `192.168.104.0/24` | VLAN 104 — Gestión (out-of-band donde sea posible) |
 | `10.104.X.0/24` | Redes de prácticas (X = práctica o grupo) |
 | `172.16.104.0/24` | Enlaces WAN / seriales entre routers |
+| `172.16.10.0/24` · `192.168.1.0/24` | ⚠️ Routers TP-Link, **fuera** del esquema de gestión |
 
 **IPs de gestión asignadas**
 
@@ -203,6 +210,7 @@ ver [la tabla de renombrado](docs/01-comparativa.md#️-avisos-transversales-del
 | `SW-C2900XL-01` | `192.168.104.15` | `RT-C2620-01` | `192.168.104.43` |
 | `SW-C2950-01` | `192.168.104.16` | `RT-C2620-02` | `192.168.104.44` |
 | `SW-PC7024-01…03` | `192.168.104.21…23` | `FW-SRX300-01/02` | `192.168.104.51/52` |
+| `RT-MR3420-01` | `172.16.10.1/24` ⚠️ | `RT-MR3420-02` | `192.168.1.1/24` ⚠️ |
 
 **Etiquetado físico:** cada equipo lleva etiqueta visible con `ID` + `IP de gestión` + **código QR**
 que apunta a su carpeta en `equipos/`. Las etiquetas están generadas y listas para imprimir en
@@ -222,7 +230,7 @@ CiscoLabs/
 │   │   ├── caracteristicas.md      ← características y protocolos
 │   │   ├── chuleta-comandos.md     ← comandos de ese equipo
 │   │   └── plan-contingencia.md    ← contraseña, OS, respaldo, checklist
-│   ├── SW-3C4500G-02/  …           ← misma estructura en las 17 carpetas
+│   ├── SW-3C4500G-02/  …           ← misma estructura en las 19 carpetas
 │   └── FW-SRX300-02/
 ├── docs/
 │   ├── 01-comparativa.md           ← vista de conjunto, memoria, riesgos
@@ -230,9 +238,9 @@ CiscoLabs/
 │   ├── 03-chuleta-comandos.md      ← «Piedra Rosetta» de las 4 CLI
 │   └── 04-bitacora.md              ← registro de incidencias
 ├── etiquetas/                      ← CÓDIGOS QR PARA EL CHASIS
-│   ├── etiquetas-QR-F104.pdf       ← hoja A4 lista para imprimir (4 páginas)
-│   ├── qr/<ID>.png                 ← los 17 QR por separado
-│   ├── logo/Telecom.png            ← logo de la carrera
+│   ├── etiquetas-QR-F104.pdf       ← hoja A4 lista para imprimir (2 páginas)
+│   ├── qr/<ID>.png                 ← los 19 QR por separado
+│   ├── logo/EMBLEMA-USFX-logo.png  ← emblema de la universidad
 │   └── generar-etiquetas.py        ← script para regenerarlos
 └── backups/
     ├── configs/                    ← respaldos de configuración (versionados)
@@ -259,10 +267,11 @@ CiscoLabs/
 - [ ] Pegar el enlace del **Google Drive** en este README y en las fichas y planes de contingencia
 - [ ] Anotar el **nombre de la PC del laboratorio** que guarda las imágenes
 - [ ] Rellenar las **credenciales por familia** (arriba y en cada ficha)
-- [ ] Capturar los [datos que faltan](docs/01-comparativa.md#-datos-pendientes-de-capturar): 4210 (todo), PowerConnect (firmware), SRX300 (versión de Junos)
+- [ ] Capturar los [datos que faltan](docs/01-comparativa.md#-datos-pendientes-de-capturar): 4210 (todo), PowerConnect (firmware), SRX300 (versión de Junos), TL-MR3420 (revisión de hardware)
 - [ ] Respaldar las imágenes de los equipos 🔴 de [prioridad 1](docs/01-comparativa.md#riesgo-de-pérdida-de-imagen)
 - [ ] Comprar **2 transceptores AUI→RJ-45** para los Cisco 2503
 - [ ] Renombrar los hostnames duplicados (`L3Switch` ×3, `Router` ×2, `SW_servers`/`SW_SERVERS`)
+- [ ] Resolver el conflicto de IP entre `RT-MR3420-02` y el SRX300 de fábrica (ambos en `192.168.1.1`)
 - [x] ~~Generar los **códigos QR**~~ → [`etiquetas/etiquetas-QR-F104.pdf`](etiquetas/etiquetas-QR-F104.pdf)
-- [ ] Imprimir al 100 % en A4 adhesivo mate, cortar y pegar en los 17 chasis
+- [ ] Imprimir al 100 % en A4 adhesivo mate, cortar y pegar en los 19 chasis
 - [ ] Anotar la **ubicación física** (rack / posición) en cada ficha

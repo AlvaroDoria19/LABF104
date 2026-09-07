@@ -7,8 +7,8 @@
 ---
 
 > [!IMPORTANT]
-> **Antes de empezar:** avisa de que vas a reiniciar el equipo, ten la consola conectada a
-> `9600 8N1`, y confirma que **tienes la imagen de sistema** localizada (ver más abajo).
+> **Antes de empezar:** avisa de que vas a reiniciar el equipo, ten el acceso de consola o de red
+> preparado, y confirma que **tienes la imagen de sistema** localizada (ver más abajo).
 > Las credenciales actuales están en la [ficha del equipo](README.md#-acceso).
 
 ---
@@ -72,7 +72,7 @@ root# set system login user lab-admin class super-user authentication plain-text
 root# commit
 ```
 
-7. Anota las nuevas credenciales en [Acceso](README.md#-acceso) y en el [README](../../README.md).
+7. Anota las nuevas credenciales en [Acceso](README.md#-acceso) y en el [README](../README.md).
 
 > ⚠️ **Si el equipo está en Chassis Cluster**, hazlo en el nodo correspondiente y verifica el
 > estado del clúster al terminar con `show chassis cluster status`.
@@ -199,7 +199,7 @@ Copia este bloque en las [notas del equipo](README.md#-notas-e-historial-de-este
 
 - [ ] Aviso previo: no había práctica en curso
 - [ ] Síntoma observado: ...
-- [ ] Consola conectada y velocidad confirmada: 9600 / 115200
+- [ ] Acceso preparado (consola / SSH / failsafe): ...
 - [ ] Configuración anterior recuperada / disponible en backups: sí / no
 - [ ] Procedimiento aplicado: contraseña / restauración de imagen / reset de fábrica
 - [ ] Imagen usada (nombre exacto): ...

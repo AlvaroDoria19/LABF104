@@ -18,6 +18,7 @@
   - [3Com 4500G / 4210](#3com-4500g--4210--menú-bootrom)
   - [Dell PowerConnect 7024](#dell-powerconnect-7024--boot-menu)
   - [Juniper EX2300 / SRX300](#juniper-ex2300--srx300--modo-single-user)
+  - [TP-Link TL-MR3420 (OpenWRT)](#tp-link-tl-mr3420-openwrt--modo-failsafe)
 - [📀 Recuperación de imágenes de sistema](#-recuperación-de-imágenes-de-sistema)
 - [♻️ Restauración de configuración base](#️-restauración-de-configuración-base)
 - [🧾 Checklist de intervención](#-checklist-de-intervención)
@@ -55,6 +56,7 @@
 | Se queda en `switch:` / `rommon 1 >` / `loader>` | El equipo no encuentra sistema válido | [Recuperación de imágenes](#-recuperación-de-imágenes-de-sistema) |
 | Consola muestra basura o nada | Velocidad incorrecta / cable rollover mal | Probar `9600` y `115200`; cambiar cable |
 | Junos: `commit` falla | Falta contraseña de `root` o error de sintaxis | `commit check` y `set system root-authentication` |
+| OpenWRT: el cambio no se aplica | Falta `uci commit` | `uci commit <sección>` + reiniciar el servicio |
 | No hay LEDs / no arranca | Fallo de fuente de alimentación | Fuera del alcance de este plan → **baja del equipo** |
 
 ---
@@ -343,6 +345,53 @@ root# set system login user lab-admin class super-user authentication plain-text
 
 ---
 
+### TP-Link TL-MR3420 (OpenWRT) — modo failsafe
+
+Aplica a: `RT-MR3420-01/02`
+
+> ⚠️ Estos routers **no tienen consola externa**: el UART está dentro de la carcasa. El rescate se
+> hace por red, en modo *failsafe*, donde el router **siempre** responde en `192.168.1.1`.
+
+1. Conecta el PC a un puerto **LAN** del router y ponle IP fija `192.168.1.2/24`.
+2. Desconecta la alimentación del router.
+3. Vuelve a darle alimentación y observa el LED **SYS**: cuando empiece a **parpadear rápido**,
+   pulsa varias veces el botón **Reset / QSS**. Si lo aciertas, el LED pasa a parpadear **aún más
+   rápido**: ya está en *failsafe*.
+4. Conéctate por **telnet** (en *failsafe* no hay contraseña y SSH está desactivado):
+
+```text
+telnet 192.168.1.1
+```
+
+> En Windows 11 el cliente telnet no viene activado: `Activar o desactivar características de
+> Windows` → `Cliente Telnet`. En Linux, `sudo apt install telnet`.
+
+5. Monta la partición de sobrescritura y cambia la contraseña:
+
+```text
+mount_root
+passwd root
+sync
+reboot -f
+```
+
+6. Anota la nueva contraseña en el [README](../README.md#-credenciales-de-acceso).
+
+**Para dejarlo de fábrica** (⚠️ borra configuración, IP y WiFi):
+
+```text
+mount_root
+firstboot -y
+reboot -f
+```
+
+O por hardware: con el router encendido, mantén **Reset unos 10 segundos**.
+
+Procedimiento completo, incluida la recuperación del firmware por TFTP de U-Boot, en el
+[plan de contingencia del equipo](../equipos/RT-MR3420-01/plan-contingencia.md).
+
+---
+
 ## 📀 Recuperación de imágenes de sistema
 
 > [!CAUTION]
@@ -588,6 +637,7 @@ Rutina de fin de práctica: devolver cada equipo a su configuración conocida.
 | **3Com Comware** | `tftp 192.168.104.10 put flash:/startup.cfg SW-3C4500G-01.cfg` | `tftp 192.168.104.10 get SW-3C4500G-01.cfg flash:/startup.cfg` + `reboot` |
 | **Dell PowerConnect** | `copy running-config tftp://192.168.104.10/SW-PC7024-01.cfg` | `copy tftp://192.168.104.10/SW-PC7024-01.cfg startup-config` + `reload` |
 | **Juniper Junos** | `file copy /config/juniper.conf.gz scp://…` o `show configuration \| display set` | `load override /var/tmp/<fichero>` + `commit` |
+| **OpenWRT / LEDE** | `sysupgrade -b /tmp/<ID>.tar.gz` + `scp` al PC | `sysupgrade -r /tmp/<ID>_base.tar.gz` + `reboot` |
 
 Script de respaldo masivo (adáptalo con tus credenciales; requiere `sshpass` o claves SSH):
 

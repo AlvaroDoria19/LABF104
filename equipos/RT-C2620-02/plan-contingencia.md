@@ -7,8 +7,8 @@
 ---
 
 > [!IMPORTANT]
-> **Antes de empezar:** avisa de que vas a reiniciar el equipo, ten la consola conectada a
-> `9600 8N1`, y confirma que **tienes la imagen de sistema** localizada (ver más abajo).
+> **Antes de empezar:** avisa de que vas a reiniciar el equipo, ten el acceso de consola o de red
+> preparado, y confirma que **tienes la imagen de sistema** localizada (ver más abajo).
 > Las credenciales actuales están en la [ficha del equipo](README.md#-acceso).
 
 ---
@@ -170,7 +170,7 @@ Copia este bloque en las [notas del equipo](README.md#-notas-e-historial-de-este
 
 - [ ] Aviso previo: no había práctica en curso
 - [ ] Síntoma observado: ...
-- [ ] Consola conectada y velocidad confirmada: 9600 / 115200
+- [ ] Acceso preparado (consola / SSH / failsafe): ...
 - [ ] Configuración anterior recuperada / disponible en backups: sí / no
 - [ ] Procedimiento aplicado: contraseña / restauración de imagen / reset de fábrica
 - [ ] Imagen usada (nombre exacto): ...

@@ -149,6 +149,9 @@ Los accesorios se pierden más que los equipos. Contar al inicio y al final de c
 | SFP 1GbE | SRX300 (puertos ge-0/0/6-7) | | ☐ |
 | Módulos 10G para bahías | Dell PowerConnect 7024 | | ☐ |
 | Memoria USB de rescate (FAT32, 8–16 GB) | EX2300 · SRX300 — **única vía de rescate** | | ☐ |
+| Antenas WiFi desmontables (2 por router) | TP-Link TL-MR3420 | | ☐ |
+| Adaptador USB-TTL de **3,3 V** | TL-MR3420 — rescate por UART (⚠️ nunca de 5 V) | | ☐ |
+| Módem USB 3G/4G | TL-MR3420 — prácticas de respaldo por red móvil | | ☐ |
 
 ---
 

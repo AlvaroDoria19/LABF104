@@ -10,427 +10,231 @@
   .aviso b { color: #000; }
   .pagina { page-break-after: always; }
   .pagina:last-child { page-break-after: auto; }
-  .hoja { font-size: 0; }
-  .cel { display: inline-block; vertical-align: top; margin: 0 2mm 2mm 0;
-          border: 0.2mm dashed #999; border-radius: 1.5mm; background: #fff;
-          overflow: hidden; text-align: center; }
-  .cel img { display: block; margin: 0 auto; image-rendering: pixelated; }
-  .id { font-weight: bold; letter-spacing: -0.15pt; white-space: nowrap; }
-  .sub { color: #444; }
+  .hoja { font-size: 0; line-height: 0; }
+  .fila-et { font-size: 0; line-height: 0; white-space: nowrap; }
 
-  /* --- A) frontal vertical: 34 x 40 mm, QR 28 mm --- */
-  .A { width: 34mm; height: 40mm; padding: 1.5mm 0.5mm; }
-  .A img { width: 28mm; height: 28mm; }
-  .A .id { font-size: 8.2pt; margin-top: 1.2mm; }
-  .A .sub { font-size: 5.4pt; margin-top: 0.3mm; }
-
-  /* --- B) frontal horizontal: 60 x 34 mm, QR 30 mm --- */
-  .B { width: 60mm; height: 34mm; padding: 2mm 1.5mm; text-align: left; }
-  .B .fila { display: table; width: 100%; height: 30mm; }
-  .B .cq { display: table-cell; width: 30mm; vertical-align: middle; }
-  .B .ct { display: table-cell; vertical-align: middle; padding-left: 2mm;
+  /* etiqueta frontal horizontal: 60 x 34 mm, QR 30 mm */
+  .et { display: inline-block; vertical-align: top; width: 60mm; height: 34mm;
+        margin: 0 2mm 2mm 0; border: 0.2mm dashed #999; border-radius: 1.5mm;
+        padding: 2mm 1.5mm; background: #fff; overflow: hidden; line-height: normal; }
+  .et .fila { display: table; width: 100%; height: 30mm; }
+  .et .cq { display: table-cell; width: 30mm; vertical-align: middle; }
+  .et .ct { display: table-cell; vertical-align: middle; padding-left: 1.5mm;
             overflow: hidden; }
-  .B img { width: 30mm; height: 30mm; }
-  .B .lab { font-size: 5.5pt; letter-spacing: 0.6pt; color: #666; }
-  .B .id { font-size: 8.6pt; line-height: 1.2; letter-spacing: -0.25pt; }
-  .B .mod { font-size: 6pt; color: #222; margin-top: 0.6mm; white-space: nowrap; }
-  .B .sub { font-size: 6pt; font-family: "DejaVu Sans Mono", monospace; }
-
-  /* --- C) grande: 38 x 46 mm, QR 32 mm --- */
-  .C { width: 38mm; height: 46mm; padding: 1.5mm 1mm; }
-  .C img { width: 32mm; height: 32mm; }
-  .C .id { font-size: 9.2pt; margin-top: 1.2mm; }
-  .C .sub { font-size: 6pt; margin-top: 0.4mm; }
+  .et img { width: 30mm; height: 30mm; display: block; image-rendering: pixelated; }
+  .et .lab { font-size: 5.5pt; letter-spacing: 0.6pt; color: #666; }
+  .et .id { font-size: 8.2pt; font-weight: bold; line-height: 1.2;
+            letter-spacing: -0.3pt; white-space: nowrap; }
+  .et .mod { font-size: 6pt; color: #222; margin-top: 0.6mm; white-space: nowrap; }
+  .et .ip { font-size: 6pt; color: #444; font-family: "DejaVu Sans Mono", monospace;
+            margin-top: 0.3mm; white-space: nowrap; }
 
   table { width: 100%; border-collapse: collapse; font-size: 7pt; }
   th, td { border: 0.2mm solid #bbb; padding: 1mm 1.4mm; text-align: left; }
   th { background: #eee; }
   td.m { font-family: "DejaVu Sans Mono", monospace; white-space: nowrap; }
   td.u { font-family: "DejaVu Sans Mono", monospace; font-size: 5.8pt;
-          word-break: break-all; }
+         word-break: break-all; }
 </style></head><body>
 
 <div class="pagina">
-  <h1>Etiquetas QR F104 — A) Frontal vertical <span style="font-weight:normal">(recomendado)</span></h1>
+  <h1>Etiquetas QR — Laboratorio F104 · Universidad San Francisco Xavier</h1>
   <p class="aviso">
-    <b>IMPRIMIR AL 100 %.</b> En el diálogo de impresión elige «Tamaño real» /
-    «Escala: 100 %» y <b>desactiva</b> «Ajustar a la página»: si se escala, los QR pierden
-    resolución y dejan de leerse. Papel A4, preferiblemente adhesivo <b>mate</b> (el brillo
-    produce reflejos que impiden el escaneo). Corta por la línea de puntos.<br>
-    <b>Etiqueta:</b> 34 × 40 mm · <b>QR:</b> 28 mm (49×49 módulos,
-    0.53 mm por módulo, corrección de errores H al 30 %).<br>
-    <b>Cabe en el frontal de cualquier equipo del laboratorio</b>: todos son de 1U
-    (44,5 mm de alto), así que la etiqueta deja unos 2 mm de margen arriba y abajo.
-    El ID va debajo del QR.
+    <b>IMPRIMIR AL 100 %</b> — «Tamaño real», con «Ajustar a la página» <b>desactivado</b>.
+    Papel A4 adhesivo <b>mate</b>. Corta por la línea de puntos.
+    <b>Etiqueta</b> 60 × 34 mm · <b>QR</b> 30 mm · instrucciones completas en la página 2.
   </p>
-  <div class="hoja">
-      <div class="cel A">
-        <img src="qr/SW-3C4500G-01.png" alt="SW-3C4500G-01">
-        <div class="id">SW-3C4500G-01</div>
-        <div class="sub">F104 · 192.168.104.11</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-3C4500G-02.png" alt="SW-3C4500G-02">
-        <div class="id">SW-3C4500G-02</div>
-        <div class="sub">F104 · 192.168.104.12</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-3C4210-01.png" alt="SW-3C4210-01">
-        <div class="id">SW-3C4210-01</div>
-        <div class="sub">F104 · 192.168.104.13</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-3C4210-02.png" alt="SW-3C4210-02">
-        <div class="id">SW-3C4210-02</div>
-        <div class="sub">F104 · 192.168.104.14</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-C2900XL-01.png" alt="SW-C2900XL-01">
-        <div class="id">SW-C2900XL-01</div>
-        <div class="sub">F104 · 192.168.104.15</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-C2950-01.png" alt="SW-C2950-01">
-        <div class="id">SW-C2950-01</div>
-        <div class="sub">F104 · 192.168.104.16</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-PC7024-01.png" alt="SW-PC7024-01">
-        <div class="id">SW-PC7024-01</div>
-        <div class="sub">F104 · 192.168.104.21</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-PC7024-02.png" alt="SW-PC7024-02">
-        <div class="id">SW-PC7024-02</div>
-        <div class="sub">F104 · 192.168.104.22</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-PC7024-03.png" alt="SW-PC7024-03">
-        <div class="id">SW-PC7024-03</div>
-        <div class="sub">F104 · 192.168.104.23</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-EX2300-01.png" alt="SW-EX2300-01">
-        <div class="id">SW-EX2300-01</div>
-        <div class="sub">F104 · 192.168.104.31</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/SW-EX2300-02.png" alt="SW-EX2300-02">
-        <div class="id">SW-EX2300-02</div>
-        <div class="sub">F104 · 192.168.104.32</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/RT-C2503-01.png" alt="RT-C2503-01">
-        <div class="id">RT-C2503-01</div>
-        <div class="sub">F104 · 192.168.104.41</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/RT-C2503-02.png" alt="RT-C2503-02">
-        <div class="id">RT-C2503-02</div>
-        <div class="sub">F104 · 192.168.104.42</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/RT-C2620-01.png" alt="RT-C2620-01">
-        <div class="id">RT-C2620-01</div>
-        <div class="sub">F104 · 192.168.104.43</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/RT-C2620-02.png" alt="RT-C2620-02">
-        <div class="id">RT-C2620-02</div>
-        <div class="sub">F104 · 192.168.104.44</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/FW-SRX300-01.png" alt="FW-SRX300-01">
-        <div class="id">FW-SRX300-01</div>
-        <div class="sub">F104 · 192.168.104.51</div>
-      </div>
-      <div class="cel A">
-        <img src="qr/FW-SRX300-02.png" alt="FW-SRX300-02">
-        <div class="id">FW-SRX300-02</div>
-        <div class="sub">F104 · 192.168.104.52</div>
-      </div></div>
-</div>
-
-<div class="pagina">
-  <h1>Etiquetas QR F104 — B) Frontal horizontal</h1>
-  <p class="aviso">
-    <b>IMPRIMIR AL 100 %.</b> En el diálogo de impresión elige «Tamaño real» /
-    «Escala: 100 %» y <b>desactiva</b> «Ajustar a la página»: si se escala, los QR pierden
-    resolución y dejan de leerse. Papel A4, preferiblemente adhesivo <b>mate</b> (el brillo
-    produce reflejos que impiden el escaneo). Corta por la línea de puntos.<br>
-    <b>Etiqueta:</b> 60 × 34 mm · <b>QR:</b> 30 mm (49×49 módulos,
-    0.57 mm por módulo, corrección de errores H al 30 %).<br>
-    Alternativa para frontales <b>anchos y con poca altura libre</b> (por ejemplo, la franja
-    sobre los puertos de los switches). Aquí el ID va a la derecha del QR y con más tamaño,
-    además del modelo y la IP. Úsala si prefieres leer el ID a distancia sin escanear.
-  </p>
-  <div class="hoja">
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-3C4500G-01.png" alt="SW-3C4500G-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-3C4500G-01</div>
-          <div class="mod">3Com 4500G</div>
-          <div class="sub">192.168.104.11</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-3C4500G-02.png" alt="SW-3C4500G-02"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-3C4500G-02</div>
-          <div class="mod">3Com 4500G</div>
-          <div class="sub">192.168.104.12</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-3C4210-01.png" alt="SW-3C4210-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-3C4210-01</div>
-          <div class="mod">3Com 4210</div>
-          <div class="sub">192.168.104.13</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-3C4210-02.png" alt="SW-3C4210-02"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-3C4210-02</div>
-          <div class="mod">3Com 4210</div>
-          <div class="sub">192.168.104.14</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-C2900XL-01.png" alt="SW-C2900XL-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-C2900XL-01</div>
-          <div class="mod">Catalyst 2924-XL</div>
-          <div class="sub">192.168.104.15</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-C2950-01.png" alt="SW-C2950-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-C2950-01</div>
-          <div class="mod">Catalyst 2950</div>
-          <div class="sub">192.168.104.16</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-PC7024-01.png" alt="SW-PC7024-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-PC7024-01</div>
-          <div class="mod">Dell PC7024</div>
-          <div class="sub">192.168.104.21</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-PC7024-02.png" alt="SW-PC7024-02"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-PC7024-02</div>
-          <div class="mod">Dell PC7024</div>
-          <div class="sub">192.168.104.22</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-PC7024-03.png" alt="SW-PC7024-03"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-PC7024-03</div>
-          <div class="mod">Dell PC7024</div>
-          <div class="sub">192.168.104.23</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-EX2300-01.png" alt="SW-EX2300-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-EX2300-01</div>
-          <div class="mod">Juniper EX2300</div>
-          <div class="sub">192.168.104.31</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/SW-EX2300-02.png" alt="SW-EX2300-02"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">SW-EX2300-02</div>
-          <div class="mod">Juniper EX2300</div>
-          <div class="sub">192.168.104.32</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/RT-C2503-01.png" alt="RT-C2503-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">RT-C2503-01</div>
-          <div class="mod">Cisco 2503</div>
-          <div class="sub">192.168.104.41</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/RT-C2503-02.png" alt="RT-C2503-02"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">RT-C2503-02</div>
-          <div class="mod">Cisco 2503</div>
-          <div class="sub">192.168.104.42</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/RT-C2620-01.png" alt="RT-C2620-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">RT-C2620-01</div>
-          <div class="mod">Cisco 2620</div>
-          <div class="sub">192.168.104.43</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/RT-C2620-02.png" alt="RT-C2620-02"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">RT-C2620-02</div>
-          <div class="mod">Cisco 2620</div>
-          <div class="sub">192.168.104.44</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/FW-SRX300-01.png" alt="FW-SRX300-01"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">FW-SRX300-01</div>
-          <div class="mod">Juniper SRX300</div>
-          <div class="sub">192.168.104.51</div>
-        </div>
-      </div></div>
-      <div class="cel B"><div class="fila">
-        <div class="cq"><img src="qr/FW-SRX300-02.png" alt="FW-SRX300-02"></div>
-        <div class="ct">
-          <div class="lab">LAB F104</div>
-          <div class="id">FW-SRX300-02</div>
-          <div class="mod">Juniper SRX300</div>
-          <div class="sub">192.168.104.52</div>
-        </div>
-      </div></div></div>
-</div>
-
-<div class="pagina">
-  <h1>Etiquetas QR F104 — C) Grande</h1>
-  <p class="aviso">
-    <b>IMPRIMIR AL 100 %.</b> En el diálogo de impresión elige «Tamaño real» /
-    «Escala: 100 %» y <b>desactiva</b> «Ajustar a la página»: si se escala, los QR pierden
-    resolución y dejan de leerse. Papel A4, preferiblemente adhesivo <b>mate</b> (el brillo
-    produce reflejos que impiden el escaneo). Corta por la línea de puntos.<br>
-    <b>Etiqueta:</b> 38 × 46 mm · <b>QR:</b> 32 mm (49×49 módulos,
-    0.60 mm por módulo, corrección de errores H al 30 %).<br>
-    <b>No cabe en un frontal de 1U</b> (mide 46 mm de alto). Úsala en la <b>tapa superior</b>
-    del chasis, en el carril del rack, en las cajas de accesorios (transceptores AUI, cables
-    DB-60, SFP) o en el USB de rescate. Es la más fácil de escanear.
-  </p>
-  <div class="hoja">
-      <div class="cel C">
-        <img src="qr/SW-3C4500G-01.png" alt="SW-3C4500G-01">
-        <div class="id">SW-3C4500G-01</div>
-        <div class="sub">F104 · 192.168.104.11</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-3C4500G-02.png" alt="SW-3C4500G-02">
-        <div class="id">SW-3C4500G-02</div>
-        <div class="sub">F104 · 192.168.104.12</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-3C4210-01.png" alt="SW-3C4210-01">
-        <div class="id">SW-3C4210-01</div>
-        <div class="sub">F104 · 192.168.104.13</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-3C4210-02.png" alt="SW-3C4210-02">
-        <div class="id">SW-3C4210-02</div>
-        <div class="sub">F104 · 192.168.104.14</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-C2900XL-01.png" alt="SW-C2900XL-01">
-        <div class="id">SW-C2900XL-01</div>
-        <div class="sub">F104 · 192.168.104.15</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-C2950-01.png" alt="SW-C2950-01">
-        <div class="id">SW-C2950-01</div>
-        <div class="sub">F104 · 192.168.104.16</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-PC7024-01.png" alt="SW-PC7024-01">
-        <div class="id">SW-PC7024-01</div>
-        <div class="sub">F104 · 192.168.104.21</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-PC7024-02.png" alt="SW-PC7024-02">
-        <div class="id">SW-PC7024-02</div>
-        <div class="sub">F104 · 192.168.104.22</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-PC7024-03.png" alt="SW-PC7024-03">
-        <div class="id">SW-PC7024-03</div>
-        <div class="sub">F104 · 192.168.104.23</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-EX2300-01.png" alt="SW-EX2300-01">
-        <div class="id">SW-EX2300-01</div>
-        <div class="sub">F104 · 192.168.104.31</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/SW-EX2300-02.png" alt="SW-EX2300-02">
-        <div class="id">SW-EX2300-02</div>
-        <div class="sub">F104 · 192.168.104.32</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/RT-C2503-01.png" alt="RT-C2503-01">
-        <div class="id">RT-C2503-01</div>
-        <div class="sub">F104 · 192.168.104.41</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/RT-C2503-02.png" alt="RT-C2503-02">
-        <div class="id">RT-C2503-02</div>
-        <div class="sub">F104 · 192.168.104.42</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/RT-C2620-01.png" alt="RT-C2620-01">
-        <div class="id">RT-C2620-01</div>
-        <div class="sub">F104 · 192.168.104.43</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/RT-C2620-02.png" alt="RT-C2620-02">
-        <div class="id">RT-C2620-02</div>
-        <div class="sub">F104 · 192.168.104.44</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/FW-SRX300-01.png" alt="FW-SRX300-01">
-        <div class="id">FW-SRX300-01</div>
-        <div class="sub">F104 · 192.168.104.51</div>
-      </div>
-      <div class="cel C">
-        <img src="qr/FW-SRX300-02.png" alt="FW-SRX300-02">
-        <div class="id">FW-SRX300-02</div>
-        <div class="sub">F104 · 192.168.104.52</div>
-      </div></div>
+  <div class="hoja"><div class="fila-et">
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-3C4500G-01.png" alt="SW-3C4500G-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-3C4500G-01</div>
+            <div class="mod">3Com 4500G</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-3C4500G-02.png" alt="SW-3C4500G-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-3C4500G-02</div>
+            <div class="mod">3Com 4500G</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-3C4210-01.png" alt="SW-3C4210-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-3C4210-01</div>
+            <div class="mod">3Com 4210</div>
+            
+          </div>
+        </div></div></div><div class="fila-et">
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-3C4210-02.png" alt="SW-3C4210-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-3C4210-02</div>
+            <div class="mod">3Com 4210</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-C2900XL-01.png" alt="SW-C2900XL-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-C2900XL-01</div>
+            <div class="mod">Catalyst 2924-XL</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-C2950-01.png" alt="SW-C2950-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-C2950-01</div>
+            <div class="mod">Catalyst 2950</div>
+            
+          </div>
+        </div></div></div><div class="fila-et">
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-PC7024-01.png" alt="SW-PC7024-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-PC7024-01</div>
+            <div class="mod">Dell PC7024</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-PC7024-02.png" alt="SW-PC7024-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-PC7024-02</div>
+            <div class="mod">Dell PC7024</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-PC7024-03.png" alt="SW-PC7024-03"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-PC7024-03</div>
+            <div class="mod">Dell PC7024</div>
+            
+          </div>
+        </div></div></div><div class="fila-et">
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-EX2300-01.png" alt="SW-EX2300-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-EX2300-01</div>
+            <div class="mod">Juniper EX2300</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/SW-EX2300-02.png" alt="SW-EX2300-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">SW-EX2300-02</div>
+            <div class="mod">Juniper EX2300</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/RT-C2503-01.png" alt="RT-C2503-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">RT-C2503-01</div>
+            <div class="mod">Cisco 2503</div>
+            
+          </div>
+        </div></div></div><div class="fila-et">
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/RT-C2503-02.png" alt="RT-C2503-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">RT-C2503-02</div>
+            <div class="mod">Cisco 2503</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/RT-C2620-01.png" alt="RT-C2620-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">RT-C2620-01</div>
+            <div class="mod">Cisco 2620</div>
+            
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/RT-C2620-02.png" alt="RT-C2620-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">RT-C2620-02</div>
+            <div class="mod">Cisco 2620</div>
+            
+          </div>
+        </div></div></div><div class="fila-et">
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/RT-MR3420-01.png" alt="RT-MR3420-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">RT-MR3420-01</div>
+            <div class="mod">TL-MR3420 OpenWRT</div>
+            <div class="ip">172.16.10.1/24</div>
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/RT-MR3420-02.png" alt="RT-MR3420-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">RT-MR3420-02</div>
+            <div class="mod">TL-MR3420 OpenWRT</div>
+            <div class="ip">192.168.1.1/24</div>
+          </div>
+        </div></div>
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/FW-SRX300-01.png" alt="FW-SRX300-01"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">FW-SRX300-01</div>
+            <div class="mod">Juniper SRX300</div>
+            
+          </div>
+        </div></div></div><div class="fila-et">
+        <div class="et"><div class="fila">
+          <div class="cq"><img src="qr/FW-SRX300-02.png" alt="FW-SRX300-02"></div>
+          <div class="ct">
+            <div class="lab">LAB F104 · USFX</div>
+            <div class="id">FW-SRX300-02</div>
+            <div class="mod">Juniper SRX300</div>
+            
+          </div>
+        </div></div></div></div>
 </div>
 
 <div class="pagina">
   <h1>Verificación de destinos</h1>
   <p class="aviso">
-    Escanea cada QR con el móvil y comprueba que abre la carpeta correcta <b>antes</b> de pegar
-    las etiquetas. Todos llevan corrección de errores <b>H (30 %)</b> y el logo central ocupa
-    un 7 % del área, muy por debajo del límite: la lectura no se ve afectada.
+    <b>Cómo imprimir.</b> Elige «Tamaño real» / «Escala: 100 %» y <b>desactiva</b> «Ajustar a la
+    página»: si se escala, los QR pierden resolución y dejan de leerse. Papel A4, preferiblemente
+    adhesivo <b>mate</b> — el brillo produce reflejos que impiden el escaneo con el flash del móvil.<br>
+    <b>Dimensiones.</b> Etiqueta 60 × 34 mm · QR 30 mm (49×49 módulos, 0.57 mm por
+    módulo, corrección de errores H al 30 %; el emblema de la USFX tapa el 12 % del
+    área). Cabe en el frontal de cualquier equipo del laboratorio: todos son de 1U (44,5 mm de alto).<br>
+    <b>IP impresa sólo en los dos TP-Link</b>, que son los únicos con dirección fija fuera de la
+    VLAN de gestión. En el resto la IP puede cambiar, así que se consulta en la ficha del equipo
+    a la que lleva el QR.<br>
+    <b>Antes de pegar:</b> escanea cada QR con el móvil y comprueba que abre la carpeta correcta.
   </p>
   <table>
-    <thead><tr><th>ID</th><th>Modelo</th><th>IP de gestión</th><th>Destino del QR</th></tr></thead>
-    <tbody><tr><td class="m">SW-3C4500G-01</td><td>3Com 4500G</td><td class="m">192.168.104.11</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4500G-01</td></tr><tr><td class="m">SW-3C4500G-02</td><td>3Com 4500G</td><td class="m">192.168.104.12</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4500G-02</td></tr><tr><td class="m">SW-3C4210-01</td><td>3Com 4210</td><td class="m">192.168.104.13</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4210-01</td></tr><tr><td class="m">SW-3C4210-02</td><td>3Com 4210</td><td class="m">192.168.104.14</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4210-02</td></tr><tr><td class="m">SW-C2900XL-01</td><td>Catalyst 2924-XL</td><td class="m">192.168.104.15</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-C2900XL-01</td></tr><tr><td class="m">SW-C2950-01</td><td>Catalyst 2950</td><td class="m">192.168.104.16</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-C2950-01</td></tr><tr><td class="m">SW-PC7024-01</td><td>Dell PC7024</td><td class="m">192.168.104.21</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-PC7024-01</td></tr><tr><td class="m">SW-PC7024-02</td><td>Dell PC7024</td><td class="m">192.168.104.22</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-PC7024-02</td></tr><tr><td class="m">SW-PC7024-03</td><td>Dell PC7024</td><td class="m">192.168.104.23</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-PC7024-03</td></tr><tr><td class="m">SW-EX2300-01</td><td>Juniper EX2300</td><td class="m">192.168.104.31</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-EX2300-01</td></tr><tr><td class="m">SW-EX2300-02</td><td>Juniper EX2300</td><td class="m">192.168.104.32</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-EX2300-02</td></tr><tr><td class="m">RT-C2503-01</td><td>Cisco 2503</td><td class="m">192.168.104.41</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2503-01</td></tr><tr><td class="m">RT-C2503-02</td><td>Cisco 2503</td><td class="m">192.168.104.42</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2503-02</td></tr><tr><td class="m">RT-C2620-01</td><td>Cisco 2620</td><td class="m">192.168.104.43</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2620-01</td></tr><tr><td class="m">RT-C2620-02</td><td>Cisco 2620</td><td class="m">192.168.104.44</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2620-02</td></tr><tr><td class="m">FW-SRX300-01</td><td>Juniper SRX300</td><td class="m">192.168.104.51</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/FW-SRX300-01</td></tr><tr><td class="m">FW-SRX300-02</td><td>Juniper SRX300</td><td class="m">192.168.104.52</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/FW-SRX300-02</td></tr></tbody>
+    <thead><tr><th>ID</th><th>Modelo</th><th>IP en la etiqueta</th><th>Destino del QR</th></tr></thead>
+    <tbody><tr><td class="m">SW-3C4500G-01</td><td>3Com 4500G</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4500G-01</td></tr><tr><td class="m">SW-3C4500G-02</td><td>3Com 4500G</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4500G-02</td></tr><tr><td class="m">SW-3C4210-01</td><td>3Com 4210</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4210-01</td></tr><tr><td class="m">SW-3C4210-02</td><td>3Com 4210</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-3C4210-02</td></tr><tr><td class="m">SW-C2900XL-01</td><td>Catalyst 2924-XL</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-C2900XL-01</td></tr><tr><td class="m">SW-C2950-01</td><td>Catalyst 2950</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-C2950-01</td></tr><tr><td class="m">SW-PC7024-01</td><td>Dell PC7024</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-PC7024-01</td></tr><tr><td class="m">SW-PC7024-02</td><td>Dell PC7024</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-PC7024-02</td></tr><tr><td class="m">SW-PC7024-03</td><td>Dell PC7024</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-PC7024-03</td></tr><tr><td class="m">SW-EX2300-01</td><td>Juniper EX2300</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-EX2300-01</td></tr><tr><td class="m">SW-EX2300-02</td><td>Juniper EX2300</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/SW-EX2300-02</td></tr><tr><td class="m">RT-C2503-01</td><td>Cisco 2503</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2503-01</td></tr><tr><td class="m">RT-C2503-02</td><td>Cisco 2503</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2503-02</td></tr><tr><td class="m">RT-C2620-01</td><td>Cisco 2620</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2620-01</td></tr><tr><td class="m">RT-C2620-02</td><td>Cisco 2620</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-C2620-02</td></tr><tr><td class="m">RT-MR3420-01</td><td>TL-MR3420 OpenWRT</td><td class="m">172.16.10.1/24</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-MR3420-01</td></tr><tr><td class="m">RT-MR3420-02</td><td>TL-MR3420 OpenWRT</td><td class="m">192.168.1.1/24</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/RT-MR3420-02</td></tr><tr><td class="m">FW-SRX300-01</td><td>Juniper SRX300</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/FW-SRX300-01</td></tr><tr><td class="m">FW-SRX300-02</td><td>Juniper SRX300</td><td class="m">—</td><td class="u">https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/FW-SRX300-02</td></tr></tbody>
   </table>
 </div>
 

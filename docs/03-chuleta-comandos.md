@@ -13,6 +13,7 @@
 - [🟢 3Com Comware](#-3com-comware--4500g-4210) — 4500G · 4210
 - [🟡 Dell PowerConnect](#-dell-powerconnect--7024) — 7024
 - [🟣 Juniper Junos](#-juniper-junos--ex2300-srx300) — EX2300 · SRX300
+- [🟠 OpenWRT / LEDE](#-openwrt--lede--tl-mr3420) — TL-MR3420
 - [🔥 Juniper SRX: firewall, NAT y VPN](#-juniper-srx-firewall-nat-y-vpn)
 - [🧰 Comandos de emergencia](#-comandos-de-emergencia-los-10-imprescindibles)
 
@@ -46,6 +47,10 @@
 | Reiniciar | `reload` | `reboot` | `reload` | `request system reboot` |
 | Ayuda contextual | `?` · `co?` · `com <TAB>` | `?` | `?` | `?` · `<TAB>` |
 | Filtrar salida | `\| include <txt>` | `\| include <txt>` | `\| include <txt>` | `\| match <txt>` |
+
+> Los dos **TP-Link con OpenWRT** no entran en esta tabla: son Linux, con una lógica de
+> configuración distinta (ficheros en `/etc/config` gestionados con `uci`). Su equivalencia está
+> en [su propia sección](#-openwrt--lede--tl-mr3420).
 
 ---
 
@@ -725,6 +730,137 @@ show chassis cluster statistics
 
 ---
 
+## 🟠 OpenWRT / LEDE — TL-MR3420
+
+> No es una CLI de red, es **Linux**. La configuración vive en ficheros de texto en `/etc/config/`
+> y se manipula con **`uci`**; nada se aplica hasta que haces `uci commit` y reinicias el servicio.
+
+### Equivalencias con el resto del laboratorio
+
+| Acción | Equipos de red | OpenWRT |
+|---|---|---|
+| Ver versión y modelo | `show version` | `ubus call system board` |
+| Ver configuración activa | `show running-config` | `uci show` |
+| Ver cambios pendientes | — | `uci changes` |
+| **Guardar** | `write memory` | `uci commit` + reiniciar el servicio |
+| Descartar cambios | — | `uci revert <sección>` |
+| Estado de interfaces | `show ip interface brief` | `ip -4 addr show` |
+| Tabla de rutas | `show ip route` | `ip route` |
+| Tabla ARP | `show arp` | `ip neigh` |
+| VLANs | `show vlan brief` | `swconfig dev switch0 show` |
+| Reglas de firewall | `show access-lists` | `iptables -L -v -n` |
+| Traducciones NAT | `show ip nat translations` | `iptables -t nat -L -v -n` |
+| Concesiones DHCP | `show ip dhcp binding` | `cat /tmp/dhcp.leases` |
+| Log del sistema | `show logging` | `logread` |
+| Reiniciar | `reload` | `reboot` |
+| Reset de fábrica | `erase startup-config` | `firstboot -y && reboot -f` |
+
+### Diagnóstico
+
+```text
+ubus call system board
+cat /etc/openwrt_release
+uname -a
+df -h
+df -h /overlay
+free
+ip -4 addr show
+ip route
+brctl show
+swconfig dev switch0 show
+iwinfo
+wifi status
+logread | tail -50
+netstat -tulpn
+```
+
+### UCI: el ciclo de configuración
+
+```text
+uci show network
+uci set network.lan.ipaddr='10.104.50.1'
+uci changes
+uci commit network
+/etc/init.d/network restart
+```
+
+Para descartar en lugar de confirmar: `uci revert network`.
+
+### WiFi (punto de acceso WPA2)
+
+```text
+uci set wireless.@wifi-device[0].disabled='0'
+uci set wireless.@wifi-device[0].channel='6'
+uci set wireless.@wifi-iface[0].ssid='F104-LAB'
+uci set wireless.@wifi-iface[0].encryption='psk2'
+uci set wireless.@wifi-iface[0].key='<clave-wifi>'
+uci commit wireless
+wifi
+```
+
+Verificar: `iwinfo` · `iwinfo wlan0 assoclist` · `iwinfo wlan0 scan`
+
+### VLANs 802.1Q en el switch integrado
+
+```text
+swconfig dev switch0 show
+uci show network | grep switch
+```
+
+> En `ports`, el sufijo `t` marca el puerto como *tagged* (trunk) y sin sufijo es *untagged*
+> (acceso). El puerto `0` suele ser el interno hacia la CPU.
+
+### Firewall por zonas (el mismo modelo del SRX, con iptables debajo)
+
+```text
+uci show firewall
+/etc/init.d/firewall restart
+iptables -L -v -n
+iptables -t nat -L -v -n
+```
+
+### Paquetes
+
+```text
+df -h /overlay
+opkg update
+opkg list-installed
+opkg install <paquete>
+```
+
+> ⚠️ **Comprueba `df -h /overlay` antes de instalar.** Con 4 MB de flash es muy fácil llenar el
+> sistema de ficheros y dejar el router en un estado del que sólo se sale reinstalando.
+
+### Respaldo y restauración
+
+```text
+sysupgrade -b /tmp/RT-MR3420-01_AAAA-MM-DD.tar.gz
+```
+
+```text
+sysupgrade -r /tmp/RT-MR3420-01_base.tar.gz
+```
+
+### Modo failsafe (contraseña perdida)
+
+Enciende el router y, cuando el LED SYS empiece a parpadear rápido, pulsa varias veces
+Reset/QSS. Luego, con el PC en `192.168.1.2/24`:
+
+```text
+telnet 192.168.1.1
+```
+
+```text
+mount_root
+passwd root
+sync
+reboot -f
+```
+
+Detalle completo en el [plan de contingencia del equipo](../equipos/RT-MR3420-01/plan-contingencia.md).
+
+---
+
 ## 🧰 Comandos de emergencia (los 10 imprescindibles)
 
 | # | Situación | Comando |
@@ -739,6 +875,7 @@ show chassis cluster statistics
 | 8 | Espacio en disco insuficiente (EX2300) | `request system storage cleanup` |
 | 9 | Ver por qué se descarta el tráfico (SRX) | `show security flow session` · `show security policies hit-count` |
 | 10 | Apagar todos los debugs de IOS | `undebug all` |
+| 11 | Recuperar un OpenWRT sin contraseña | *failsafe* + `mount_root` + `passwd root` |
 
 ---
 
@@ -756,6 +893,8 @@ show chassis cluster statistics
 | Mezclar Comware v3 y v5 | El comando «no existe» en el 4210 | Usar `?` para ver la sintaxis real del equipo |
 | Actualizar EX2300 sin espacio | Actualización fallida a medias | `request system storage cleanup` antes |
 | Borrar la imagen del 2900XL/2503 | El equipo no arranca | [Plan de contingencia](02-plan-contingencia.md) |
+| Olvidar `uci commit` en OpenWRT | El cambio no se aplica y se pierde al reiniciar | `uci commit <sección>` + `/etc/init.d/<servicio> restart` |
+| Llenar la flash del TL-MR3420 | El router deja de arrancar bien | `df -h /overlay` **antes** de cada `opkg install` |
 
 ---
 

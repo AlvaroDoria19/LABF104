@@ -2,15 +2,16 @@
 
 [⬅️ Volver al inicio](../README.md)
 
-Códigos QR para pegar en el chasis de cada equipo. Al escanearlos se abre la **carpeta del equipo**
-en GitHub, con su ficha, características, chuleta de comandos y plan de contingencia.
+Códigos QR con el **emblema de la Universidad Mayor Real y Pontificia de San Francisco Xavier de
+Chuquisaca** para pegar en el frontal de cada equipo. Al escanearlos se abre la **carpeta del
+equipo** en GitHub, con su ficha, características, chuleta de comandos y plan de contingencia.
 
 | Fichero | Qué es |
 |---|---|
-| **[`etiquetas-QR-F104.pdf`](etiquetas-QR-F104.pdf)** | **Hoja A4 lista para imprimir** — 4 páginas |
+| **[`etiquetas-QR-F104.pdf`](etiquetas-QR-F104.pdf)** | **Hoja A4 lista para imprimir** — página 1: las 19 etiquetas · página 2: instrucciones y verificación |
 | `etiquetas-QR-F104.html` | La misma hoja en HTML, para imprimir desde el navegador si el PDF falla |
-| `qr/<ID>.png` | Los 17 QR por separado (1272 × 1272 px), por si necesitas uno suelto |
-| `logo/Telecom.png` | Logo de la carrera, ya recortado y optimizado |
+| `qr/<ID>.png` | Los 19 QR por separado (1272 × 1272 px), por si necesitas uno suelto |
+| `logo/EMBLEMA-USFX-logo.png` | Emblema de la USFX |
 | `generar-etiquetas.py` | Script que regenera todo |
 
 ---
@@ -29,28 +30,33 @@ en GitHub, con su ficha, características, chuleta de comandos y plan de conting
 - Si no tienes papel adhesivo: imprime en papel normal, corta y pega con cinta adhesiva
   transparente por encima (protege el QR del polvo y del roce).
 
-## 📄 Qué hay en cada página
+Las **19 etiquetas caben en una sola hoja A4**.
 
-| Página | Formato | Etiqueta | QR | Dónde usarlo |
-|:--:|---|---|---|---|
-| 1 | **A — Frontal vertical** ⭐ | 34 × 40 mm | 28 mm | **Recomendado.** Cabe en el frontal de **cualquier** equipo. ID debajo del QR |
-| 2 | **B — Frontal horizontal** | 60 × 34 mm | 30 mm | Frontales anchos con poca altura libre. ID a la derecha y más grande, con modelo e IP |
-| 3 | **C — Grande** | 38 × 46 mm | 32 mm | Tapa superior, carril del rack, cajas de accesorios, USB de rescate. La más fácil de escanear |
-| 4 | Verificación | — | — | Tabla ID → URL para comprobar cada QR antes de pegarlo |
+## 📐 Formato
 
-### Por qué el formato A es el recomendado
+Un único formato, **frontal horizontal**:
 
-**Todos los equipos del laboratorio son de 1U**, incluidos los routers y firewalls de sobremesa:
-
-| Equipo | Altura del chasis |
+| Parámetro | Valor |
 |---|---|
-| Switches en rack (4500G, 4210, 2924-XL, 2950, PC7024, EX2300) | 44,5 mm (1U) |
-| Cisco 2503 y 2620 | ≈ 43 mm |
-| Juniper SRX300 | ≈ 44 mm |
+| Etiqueta | **60 × 34 mm** |
+| QR | **30 × 30 mm**, a la izquierda |
+| Texto | `LAB F104 · USFX` · **ID del equipo** · modelo, a la derecha |
+| Distribución | 3 etiquetas por fila, 7 filas |
 
-Es decir, **no hay ningún frontal donde quepa una etiqueta de 46 mm**. El formato A (40 mm de alto)
-deja unos 2 mm de margen arriba y abajo, y mantiene el ID debajo del QR. El formato C se queda para
-superficies sin esa restricción.
+**Cabe en el frontal de cualquier equipo del laboratorio.** Todos los chasis son de 1U
+(≈ 44,5 mm de alto), incluidos los routers y firewalls de sobremesa, así que una etiqueta de 34 mm
+deja unos 5 mm de margen arriba y abajo.
+
+### La IP sólo aparece en dos etiquetas
+
+Las direcciones de gestión cambian entre prácticas, así que **no van impresas**: se consultan en la
+ficha del equipo a la que lleva el QR. Las dos excepciones son los routers TP-Link, que tienen
+dirección fija y quedan fuera de la VLAN de gestión:
+
+| Etiqueta | IP impresa |
+|---|---|
+| `RT-MR3420-01` | `172.16.10.1/24` |
+| `RT-MR3420-02` | `192.168.1.1/24` |
 
 ## 📌 Dónde pegar cada etiqueta
 
@@ -59,6 +65,7 @@ superficies sin esa restricción.
 | Switches de 24 puertos (todos) | Franja izquierda del frontal, **antes del puerto 1**, sin tapar los LED de estado |
 | Cisco 2503 / 2620 | Zona lisa del frontal, a la derecha de los LED |
 | Juniper SRX300 | Frontal, junto a los puertos SFP |
+| TP-Link TL-MR3420 | Tapa superior o frontal, **sin tapar las rejillas de ventilación** |
 
 **Antes de pegar:**
 
@@ -75,13 +82,17 @@ superficies sin esa restricción.
 | Contenido | `https://github.com/AlvaroDoria19/LABF104/tree/main/equipos/<ID>` (72 caracteres) |
 | Versión QR | 8 — **49 × 49 módulos** |
 | Corrección de errores | **H (30 %)**, la más alta del estándar |
-| Logo central | 13 × 13 módulos → **7 % del área** (el límite seguro con H está en torno al 25 %) |
-| Tamaño de módulo | 0,53 mm (formato A) · 0,57 mm (B) · 0,60 mm (C) |
-| Resolución del PNG | 1272 × 1272 px → más de 1000 ppp a 32 mm |
+| Emblema central | 17 módulos de alto → **12 % del área** (el recuadro blanco se ajusta a la proporción del emblema para tapar el mínimo posible) |
+| Tamaño de módulo | 0,57 mm a 30 mm de QR |
+| Resolución del PNG | 1272 × 1272 px → más de 1000 ppp al tamaño impreso |
 
-**Los 17 QR se han verificado por decodificación automática** (OpenCV) tras incrustar el logo,
-simulando la impresión a 600, 300 y 203 ppp, y a tamaños desde 32 mm hasta 25 mm: **17/17 correctos
-en todos los casos**. El margen es amplio.
+**Los 19 QR se han verificado por decodificación automática** (OpenCV) tras incrustar el emblema,
+simulando la impresión a 600, 300 y 203 ppp y a tamaños desde 30 mm hasta **22 mm**: 19/19
+correctos en todos los casos. Al tamaño real de 30 mm el margen es muy amplio.
+
+> 💡 El tamaño del emblema está ajustado a 17 módulos precisamente por esto: a 19 módulos (14 % del
+> área) empezaba a fallar alguna lectura al reducir a 26 mm, y a 23 módulos (20 %) fallaba
+> directamente. Si cambias `LOGO_ALTO_MOD` en el script, vuelve a verificar la decodificación.
 
 ## ♻️ Regenerar las etiquetas
 
@@ -96,8 +107,9 @@ python3 -m venv --system-site-packages .venv && .venv/bin/pip install qrcode
 .venv/bin/python generar-etiquetas.py
 ```
 
-Dependencias: `qrcode`, `Pillow` y `weasyprint`. En Debian/Ubuntu, Pillow y WeasyPrint vienen en
-`python3-pil` y `weasyprint`; sólo `qrcode` hace falta instalarlo con `pip`.
+Para que un equipo **no** muestre IP en su etiqueta, deja la cadena vacía en la tercera columna de
+`EQUIPOS`. Dependencias: `qrcode`, `Pillow` y `weasyprint`. En Debian/Ubuntu, Pillow y WeasyPrint
+vienen en `python3-pil` y `weasyprint`; sólo `qrcode` hace falta instalarlo con `pip`.
 
 ## 🩹 Si un QR no se lee
 
@@ -105,7 +117,7 @@ Dependencias: `qrcode`, `Pillow` y `weasyprint`. En Debian/Ubuntu, Pillow y Weas
 |---|---|---|
 | No detecta nada | Se imprimió escalado | Reimprime al **100 %**, sin «ajustar a la página» |
 | Reflejos al enfocar | Papel satinado o cinta brillante | Papel mate; si ya está pegado, ilumina en ángulo |
-| Detecta pero abre error 404 | La URL del repositorio cambió | Actualiza `BASE_URL` y regenera |
+| Detecta pero abre error 404 | La URL del repositorio cambió, o el repositorio aún no se ha subido | Comprueba que el `push` se hizo; si cambió la URL, actualiza `BASE_URL` y regenera |
 | Sólo falla de cerca | El móvil no enfoca a menos de 10 cm | Escanea a 15–20 cm |
 | Borroso o con bandas | Tóner bajo o cabezal sucio | Cambia el tóner y reimprime |
 
