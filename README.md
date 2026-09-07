@@ -63,7 +63,7 @@ del laboratorio son la única fuente.
 
 | Fuente | Ubicación |
 |---|---|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA COMPARTIDA --> `` |
+| ☁️ **Google Drive del laboratorio** | [IMAGENES DE EQUIPOS](https://drive.google.com/drive/folders/1Tb2e0GKFHm_TZ4sREUhOTddM-fGJNW57?usp=sharing) |
 | 💻 **PC del laboratorio F104** | Equipo: `PC1` · Ruta: `D:\LabF104\imagenes\` |
 | 🗂️ Repositorio Git | [`backups/imagenes/`](backups/imagenes/README.md) (inventario y checksums) |
 
