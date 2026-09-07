@@ -1,0 +1,16 @@
+# --- Credenciales reales: NUNCA subir al repositorio ---
+*credenciales.local*
+*.secret
+*.key
+passwords.md
+
+# --- Imágenes de sistema (pesan mucho; guardar fuera de Git o con Git LFS) ---
+backups/imagenes/*
+!backups/imagenes/.gitkeep
+!backups/imagenes/README.md
+
+# --- Ficheros temporales ---
+*.tmp
+*.swp
+*~
+.DS_Store
