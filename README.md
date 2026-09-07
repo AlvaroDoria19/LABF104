@@ -25,6 +25,7 @@
 | 🚨 [Contingencia general](docs/02-plan-contingencia.md) | Procedimientos comunes y servidor de rescate |
 | ⚡ [Chuleta general](docs/03-chuleta-comandos.md) | «Piedra Rosetta»: el mismo comando en las 4 CLI |
 | 📝 [Bitácora](docs/04-bitacora.md) | Incidencias, préstamos y mantenimiento |
+| 🏷️ [Etiquetas QR](etiquetas/README.md) | Hoja A4 lista para imprimir con los 17 códigos QR |
 
 ---
 
@@ -203,8 +204,9 @@ ver [la tabla de renombrado](docs/01-comparativa.md#️-avisos-transversales-del
 | `SW-C2950-01` | `192.168.104.16` | `RT-C2620-02` | `192.168.104.44` |
 | `SW-PC7024-01…03` | `192.168.104.21…23` | `FW-SRX300-01/02` | `192.168.104.51/52` |
 
-**Etiquetado físico:** cada equipo debe llevar etiqueta visible con `ID` + `IP de gestión` +
-**código QR** que apunte a su carpeta en `equipos/`.
+**Etiquetado físico:** cada equipo lleva etiqueta visible con `ID` + `IP de gestión` + **código QR**
+que apunta a su carpeta en `equipos/`. Las etiquetas están generadas y listas para imprimir en
+[`etiquetas/`](etiquetas/README.md).
 
 ---
 
@@ -227,6 +229,11 @@ CiscoLabs/
 │   ├── 02-plan-contingencia.md     ← procedimientos comunes y servidor de rescate
 │   ├── 03-chuleta-comandos.md      ← «Piedra Rosetta» de las 4 CLI
 │   └── 04-bitacora.md              ← registro de incidencias
+├── etiquetas/                      ← CÓDIGOS QR PARA EL CHASIS
+│   ├── etiquetas-QR-F104.pdf       ← hoja A4 lista para imprimir (4 páginas)
+│   ├── qr/<ID>.png                 ← los 17 QR por separado
+│   ├── logo/Telecom.png            ← logo de la carrera
+│   └── generar-etiquetas.py        ← script para regenerarlos
 └── backups/
     ├── configs/                    ← respaldos de configuración (versionados)
     └── imagenes/                   ← inventario y checksums de las imágenes
@@ -256,5 +263,6 @@ CiscoLabs/
 - [ ] Respaldar las imágenes de los equipos 🔴 de [prioridad 1](docs/01-comparativa.md#riesgo-de-pérdida-de-imagen)
 - [ ] Comprar **2 transceptores AUI→RJ-45** para los Cisco 2503
 - [ ] Renombrar los hostnames duplicados (`L3Switch` ×3, `Router` ×2, `SW_servers`/`SW_SERVERS`)
-- [ ] Generar e imprimir los **códigos QR** apuntando a `equipos/<ID>/`
+- [x] ~~Generar los **códigos QR**~~ → [`etiquetas/etiquetas-QR-F104.pdf`](etiquetas/etiquetas-QR-F104.pdf)
+- [ ] Imprimir al 100 % en A4 adhesivo mate, cortar y pegar en los 17 chasis
 - [ ] Anotar la **ubicación física** (rack / posición) en cada ficha
