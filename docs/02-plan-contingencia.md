@@ -208,8 +208,7 @@ Aplica a: `SW-3C4500G-01/02`, `SW-3C4210-01/02`
 2. Reinicia el switch y, cuando aparezca
    `Press Ctrl-B to enter Boot Menu...`, pulsa **`Ctrl+B`** en los primeros ~5 segundos.
 3. Si pide contraseña de BootROM, prueba la del laboratorio (por defecto suele ser vacía o
-   `Please input Bootrom password` → Enter). ⚠️ **Si la contraseña de BootROM también se perdió, el
-   equipo no es recuperable por consola** → requiere JTAG/servicio técnico: dalo de baja.
+   `Please input Bootrom password` → Enter).
 4. En el menú de arranque, elige la opción **«Skip Current System Configuration»**
    (habitualmente la **`7`** en Comware v5; ⚠️ el número varía según versión de BootWare — **lee el
    menú real**).
@@ -244,7 +243,7 @@ Aplica a: `SW-3C4500G-01/02`, `SW-3C4210-01/02`
 
 ### Dell PowerConnect 7024 — Boot Menu
 
-Aplica a: `SW-PC7024-01..04`
+Aplica a: `SW-PC7024-01..03`
 
 1. Consola a `9600 8N1`.
 2. Reinicia. Cuando aparezca
@@ -598,51 +597,5 @@ user@sw# commit confirmed 5
 user@sw# commit
 ```
 
----
-
-## ♻️ Restauración de configuración base
-
-Rutina de fin de práctica: devolver cada equipo a su configuración conocida.
-
-| Familia | Respaldar | Restaurar |
-|---|---|---|
-| **Cisco IOS** | `copy running-config tftp:` | `copy tftp: startup-config` + `reload` |
-| **3Com Comware** | `tftp 192.168.104.10 put flash:/startup.cfg SW-3C4500G-01.cfg` | `tftp 192.168.104.10 get SW-3C4500G-01.cfg flash:/startup.cfg` + `reboot` |
-| **Dell PowerConnect** | `copy running-config tftp://192.168.104.10/SW-PC7024-01.cfg` | `copy tftp://192.168.104.10/SW-PC7024-01.cfg startup-config` + `reload` |
-| **Juniper Junos** | `file copy /config/juniper.conf.gz scp://…` o `show configuration \| display set` | `load override /var/tmp/<fichero>` + `commit` |
-| **OpenWRT / LEDE** | `sysupgrade -b /tmp/<ID>.tar.gz` + `scp` al PC | `sysupgrade -r /tmp/<ID>_base.tar.gz` + `reboot` |
-
-Script de respaldo masivo (adáptalo con tus credenciales; requiere `sshpass` o claves SSH):
-
-```bash
-for ip in 192.168.104.{21,22,23,24}; do echo "== $ip =="; ssh admin@$ip "show running-config" > backups/configs/$ip_$(date +%F).cfg; done
-```
-
-> 💡 En los equipos que sólo tienen Telnet (2900 XL, 2503) el respaldo se hace **desde el equipo
-> hacia el TFTP** (`copy running-config tftp:`), no al contrario.
-
----
-
-## 🧾 Checklist de intervención
-
-Copia este bloque en la [bitácora](04-bitacora.md) cada vez que recuperes un equipo:
-
-```markdown
-### Intervención — <ID equipo> — <fecha>
-
-- [ ] Aviso previo: no había práctica en curso
-- [ ] Síntoma observado: ...
-- [ ] Consola conectada y velocidad confirmada: 9600 / 115200
-- [ ] Configuración anterior recuperada / disponible en backups: sí / no
-- [ ] Procedimiento aplicado: password recovery / restauración de imagen / factory reset
-- [ ] Imagen usada (nombre exacto): ...
-- [ ] Nuevas credenciales anotadas en README: sí / no
-- [ ] config-register / boot system / snapshot restaurados: sí / no
-- [ ] Respaldo de la configuración final subido a backups/configs/: sí / no
-- [ ] Verificación final: show version / display version / show system OK
-- Tiempo total: ... min · Realizado por: ...
-```
-
----
 
 [⬅️ Volver al índice](../README.md) · [📊 Comparativa](01-comparativa.md) · [📇 Fichas por equipo](../equipos/README.md) · [⚡ Chuleta de comandos](03-chuleta-comandos.md)
