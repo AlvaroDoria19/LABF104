@@ -15,10 +15,7 @@
 | **ID de inventario** | `FW-SRX300-01` |
 | **Modelo** | Juniper SRX300 |
 | **Nº de serie** | ⚠️ Por confirmar |
-| **Hostname actual** | `⚠️ Por confirmar` |
 | **Hostname recomendado** | `F104-FW-SRX300-01` |
-| **IP de gestión** | `192.168.104.51` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
 
 ---
@@ -30,9 +27,7 @@
 
 | Dato | Valor |
 |---|---|
-| Usuario `root` — contraseña | `<rellenar>` |
-| Usuario de laboratorio (p. ej. `lab-admin`) | `<rellenar>` |
-| Contraseña del usuario de laboratorio | `<rellenar>` |
+| Usuario `root` — contraseña | `admin1234` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
 
@@ -96,19 +91,8 @@
 | ⭐ [Características y protocolos](caracteristicas.md) | Qué lo hace destacar, qué protocolos soporta y qué **no**, comandos de verificación |
 | ⚡ [Chuleta de comandos](chuleta-comandos.md) | Diagnóstico y configuración de este equipo, listos para copiar |
 | 🚨 [Plan de contingencia](plan-contingencia.md) | Recuperar contraseña, recuperar el OS y respaldar la configuración |
-
 ---
 
-## 📝 Notas e historial de este equipo
-
-| Fecha | Tipo | Descripción | Por |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> Tipos: `🔧 CONFIG` · `🔴 FALLO` · `🚨 RESCATE` · `⬆️ UPGRADE` · `🧹 MANT` · `📦 PRÉSTAMO`
-> El histórico completo del laboratorio queda repartido entre las notas de cada equipo.
 
 ---
 
