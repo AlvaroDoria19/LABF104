@@ -30,19 +30,16 @@
 | # | Medida | Estado |
 |:--:|---|:--:|
 | 1 | **Copia de cada imagen de sistema** en `backups/imagenes/` (los equipos EOL ya no son descargables) | ☐ |
-| 2 | **Respaldo de configuración** de los 17 equipos en `backups/configs/`, versionado en Git | ☐ |
-| 3 | **Configuración base** (`*_base.cfg`) por equipo, para restaurar tras cada práctica | ☐ |
-| 4 | Al menos **2 cables de consola** operativos + adaptador USB-serie de repuesto | ☐ |
-| 5 | **Servidor TFTP** montado y probado (`192.168.104.10`) | ☐ |
+| 4 | Al menos **2 cables de consola** operativos + adaptador USB-serie de repuesto | &#9724; |
+| 5 | **Servidor TFTP** montado y probado (`192.168.104.10`) (PC-1) | &#9724; |
 | 6 | Contraseñas registradas en el [bloque de credenciales](../README.md#-credenciales-de-acceso) y verificadas cada semestre | ☐ |
-| 7 | **Etiqueta física** en cada equipo con ID, IP y versión de SO | ☐ |
+| 7 | **Etiqueta física** en cada equipo con ID y Modelo exacto | &#9724; |
 | 8 | En Cisco: `config-register 0x2102` guardado. En Junos: `request system snapshot` hecho | ☐ |
-| 9 | Este documento **impreso** y colgado en el rack (si se pierde la red, no hay GitHub) | ☐ |
 
 > [!TIP]
-> **Regla de oro del laboratorio:** ningún equipo se apaga sin haber ejecutado antes su comando de
+> **Regla del laboratorio: ** ningún equipo se apaga sin haber ejecutado antes su comando de
 > guardado (`write memory`, `save`, `copy running-config startup-config`, `commit`).
-> Y ninguna imagen se borra sin tener otra copia verificada.
+> Y ninguna imagen se borra sin tener otra copia verificada. (Esto para las pruebas de seguridad en redes)
 
 ---
 
@@ -63,38 +60,14 @@
 
 ## 💾 Servidor TFTP de rescate
 
-Casi todos los procedimientos de recuperación necesitan un TFTP. Montarlo en el portátil del
-laboratorio (Linux) en `192.168.104.10`:
+Casi todos los procedimientos de recuperación necesitan un TFTP. Montarlo en la PC-1 del laboratorio en `192.168.104.10`:
 
 ```bash
-sudo apt install -y tftpd-hpa
+Solo se debe levantar la aplicación TFTP Server de Solawinds en la PC1, apuntar a la carpeta de D:/Backups, y asignarle la IP 192.168.104.10
 ```
 
-```bash
-sudo mkdir -p /srv/tftp && sudo chmod 777 /srv/tftp
-```
 
-```bash
-sudo sed -i 's|^TFTP_DIRECTORY=.*|TFTP_DIRECTORY="/srv/tftp"|; s|^TFTP_OPTIONS=.*|TFTP_OPTIONS="--secure --create"|' /etc/default/tftpd-hpa
-```
-
-```bash
-sudo systemctl restart tftpd-hpa && sudo systemctl status tftpd-hpa --no-pager
-```
-
-Configurar la IP fija en la interfaz conectada al laboratorio:
-
-```bash
-sudo ip addr add 192.168.104.10/24 dev eth0 && sudo ip link set eth0 up
-```
-
-Copiar las imágenes de respaldo al directorio TFTP:
-
-```bash
-sudo cp backups/imagenes/* /srv/tftp/ && ls -lh /srv/tftp/
-```
-
-> ⚠️ Si el firewall del portátil bloquea, abre UDP/69: `sudo ufw allow 69/udp`
+> ⚠️ Apagar el FIREWALL de Windows para permitir las solicitudes a la PC-1
 
 ---
 
