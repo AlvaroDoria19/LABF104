@@ -28,32 +28,6 @@ en su carpeta: [`equipos/`](../equipos/README.md)
 
 ---
 
-## Memoria y almacenamiento
-
-Determina qué se puede actualizar y qué no. Es el dato que más condiciona el plan de contingencia.
-
-| Equipo | DRAM | Flash | Flash libre | ¿Cabe una 2ª imagen? |
-|---|---|---|---|:--:|
-| 3Com 4500G | 128 MB | 16 MB | ⚠️ pendiente | ✅ Probablemente |
-| 3Com 4210 | ⚠️ pendiente | ⚠️ pendiente | ⚠️ pendiente | ⚠️ |
-| Catalyst 2924-XL-EN | 8 MB | ⚠️ ≈ 4 MB | ⚠️ pendiente | ❌ Casi seguro que no |
-| Catalyst 2950-24 | ≈ 20 MB | ⚠️ ≈ 8 MB | ⚠️ pendiente | ✅ Posiblemente |
-| Cisco 2503 #1 | ⚠️ **4 MB** | 8 MB | **396 KB** | ❌ **No** |
-| Cisco 2503 #2 | 16 MB | 8 MB | ⚠️ pendiente | ❌ Improbable |
-| Cisco 2620 #1 | 64 MB | 16 MB | **6,4 MB** | ✅ **Sí** |
-| Cisco 2620 #2 | 64 MB | 16 MB | ⚠️ pendiente | ✅ Probablemente |
-| Dell PC7024 | — | — | — | ✅ **Doble imagen nativa** |
-| Juniper EX2300 | — | ⚠️ reducida | ⚠️ pendiente | ✅ *snapshot* en partición alterna |
-| Juniper SRX300 | — | — | — | ✅ *snapshot* en partición alterna |
-| TP-Link TL-MR3420 | ⚠️ 32 MB | ⚠️ **4 MB** | ⚠️ `df -h /overlay` | ❌ **No** (apenas caben paquetes) |
-
-> [!IMPORTANT]
-> **Los tres equipos con riesgo real son el Catalyst 2924-XL, el Cisco 2503 #1 y el 3Com 4210.**
-> En ellos no cabe una segunda imagen: cualquier cambio de OS obliga a borrar la actual primero.
-> No toques su software sin la imagen respaldada, verificada y la consola conectada.
-
----
-
 ## Riesgo de pérdida de imagen
 
 Ordenado por prioridad de respaldo. **Los EOL sin distribución son los irreemplazables.**
@@ -102,31 +76,6 @@ El transceptor sigue siendo recomendable porque es más rápido y no ocupa un ro
 
 ---
 
-## ⚠️ Avisos transversales del laboratorio
-
-> [!WARNING]
-> **Ningún equipo Cisco del laboratorio tiene SSH.** Confirmado con `show version`:
-> - Catalyst 2950 → `Running Standard Image` (sin criptografía)
-> - Cisco 2620 → imagen `C2600-IS-M` (IP Plus, sin `k9`)
-> - Catalyst 2924-XL y Cisco 2503 → plataformas sin soporte de criptografía
->
-> Todo el acceso remoto a los Cisco es **Telnet en claro**. Mantén su gestión estrictamente en la
-> VLAN 104 aislada y protégela con ACL. Los 3Com, Dell y Juniper sí tienen SSH: úsalo en ellos.
-
-**Hostnames a corregir.** Varios equipos comparten o repiten nombre, lo que hace muy fácil
-configurar el equipo equivocado:
-
-| Equipo | Hostname actual | Recomendado |
-|---|---|---|
-| `SW-C2900XL-01` | `SW_servers` | `F104-SW-2924XL-01` |
-| `SW-C2950-01` | `SW_SERVERS` | `F104-SW-2950-01` |
-| `RT-C2503-01` | `Router` | `F104-RT-2503-01` |
-| `RT-C2503-02` | `Router` | `F104-RT-2503-02` |
-| `SW-PC7024-01…03` | `L3Switch` (los 3) | `F104-SW-PC7024-01…03` |
-| `SW-EX2300-01/02` | `SW-LAB1` / `SW-LAB2` | `F104-SW-EX2300-01/02` |
-
-**Los dos Cisco 2503 no son gemelos.** Mismo hardware, software distinto:
-
 | | `RT-C2503-01` | `RT-C2503-02` |
 |---|---|---|
 | IOS | 11.2(17) **Enterprise** | 11.1(17) `INR` |
@@ -134,20 +83,6 @@ configurar el equipo equivocado:
 | NAT | ✅ (llegó en 11.2) | ❌ |
 | IPX / AppleTalk / DECnet | ✅ Todos | Sólo IPX |
 | Flash libre | 396 KB | ⚠️ pendiente |
-
-No asumas que una práctica que funciona en uno funciona en el otro.
-
-**Conflicto de direccionamiento a resolver.** `RT-MR3420-02` está en `192.168.1.1`, que es a la vez
-la dirección por defecto de OpenWRT **y** la del SRX300 con configuración de fábrica. Si ambos
-equipos se conectan a la misma red hay conflicto de IP. Además, los dos TP-Link están fuera del
-esquema `192.168.104.0/24` de gestión.
-
-**Software fuera de soporte en los TP-Link.** LEDE 17.01 dejó de recibir parches en 2019 y OpenWRT
-abandonó los equipos de 4/32 MB desde la 19.07. Funcionan bien para el laboratorio, pero **no deben
-exponerse a internet**.
-
-**Los dos Cisco 2620 tampoco están igual poblados:** el #1 reporta **10** puertos serie de baja
-velocidad y el #2 sólo **6**. Confírmalo con `show diag` antes de repartir las prácticas.
 
 ---
 
@@ -159,11 +94,9 @@ velocidad y el #2 sólo **6**. Confírmalo con `show diag` antes de repartir las
 | `SW-PC7024-01…03` | Versión de firmware, nombre del `.stk` y nº de serie | `show version` |
 | `FW-SRX300-01/02` | **Versión de Junos** y nº de serie | `show system information` · `show chassis hardware` |
 | `SW-3C4500G-01/02` | Nombre del fichero `.bin` y nº de serie | `dir flash:/` · `display device manuinfo` |
-| `SW-C2900XL-01` · `SW-C2950-01` | Tamaño y espacio libre de flash | `dir flash:` |
 | `RT-C2620-02` | Nombre exacto de la imagen y flash libre | `show flash:` |
 | `RT-MR3420-01/02` | **Revisión de hardware** (v1/v2/v5) y espacio libre en flash | `ubus call system board` · `df -h /overlay` |
 | `SW-EX2300-01/02` | Nº de serie y licencias instaladas | `show chassis hardware` · `show system license` |
-| Todos | Ubicación física (rack / posición) | — |
 
 
 ---
