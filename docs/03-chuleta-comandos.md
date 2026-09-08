@@ -19,7 +19,7 @@
 
 ---
 
-## 🗺️ Piedra Rosetta: el mismo comando en las 4 CLI
+## 🗺️ El mismo comando en las 4 CLI
 
 | Acción | 🔵 Cisco IOS | 🟢 3Com Comware | 🟡 Dell PC 7024 | 🟣 Juniper Junos |
 |---|---|---|---|---|
