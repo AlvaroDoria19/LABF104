@@ -20,8 +20,6 @@
   - [Juniper EX2300 / SRX300](#juniper-ex2300--srx300--modo-single-user)
   - [TP-Link TL-MR3420 (OpenWRT)](#tp-link-tl-mr3420-openwrt--modo-failsafe)
 - [📀 Recuperación de imágenes de sistema](#-recuperación-de-imágenes-de-sistema)
-- [♻️ Restauración de configuración base](#️-restauración-de-configuración-base)
-- [🧾 Checklist de intervención](#-checklist-de-intervención)
 
 ---
 
@@ -48,7 +46,7 @@
 | Síntoma | Causa probable | Ir a |
 |---|---|---|
 | Pide contraseña y ninguna funciona | Password perdida/cambiada | [Recuperación de contraseñas](#-recuperación-de-contraseñas) |
-| Arranca sin configuración (hostname por defecto) | `startup-config` borrado o `config-register 0x2142` | [Restauración de configuración](#️-restauración-de-configuración-base) |
+| Arranca sin configuración (hostname por defecto) | `startup-config` borrado o `config-register 0x2142` | [Recuperación de contraseñas](#-recuperación-de-contraseñas) — restaura la config guardada en NVRAM |
 | Bucle de reinicio o `boot: cannot open ...` | Imagen borrada o corrupta | [Recuperación de imágenes](#-recuperación-de-imágenes-de-sistema) |
 | Se queda en `switch:` / `rommon 1 >` / `loader>` | El equipo no encuentra sistema válido | [Recuperación de imágenes](#-recuperación-de-imágenes-de-sistema) |
 | Consola muestra basura o nada | Velocidad incorrecta / cable rollover mal | Probar `9600` y `115200`; cambiar cable |
@@ -123,8 +121,7 @@ Switch(config-line)# end
 Switch# write memory
 ```
 
-8. Anota las nuevas contraseñas en el [README](../README.md#-credenciales-de-acceso) y en la
-   [bitácora](04-bitacora.md).
+8. Anota las nuevas contraseñas en el [README](../README.md#-credenciales-de-acceso).
 
 > 💡 Si sólo quieres **dejar el switch limpio**, en el paso 5 usa `delete flash:config.text` en
 > lugar de `rename` (⚠️ pierdes la configuración) y borra también `flash:vlan.dat`.
@@ -426,17 +423,18 @@ Switch# show boot
 ### Cisco 2503 — recuperación de imagen vía RXBOOT
 
 El 2500 ejecuta el IOS **desde la flash**: si la imagen está corrupta, el router no arranca. Se
-rescata con el **IOS reducido que vive en la ROM (RXBOOT)**.
-
-1. Consola a `9600 8N1`. Entra en ROM Monitor con `Break` durante el arranque.
-2. Arranca desde la ROM:
+rescata con el **IOS reducido que vive en la ROM (RXBOOT)**, entrando primero con:
 
 ```text
 > o/r 0x2101
 > i
 ```
 
-3. Obtendrás un prompt tipo `Router(boot)>`. Entra en modo privilegiado y descarga la imagen:
+Obtendrás un prompt `Router(boot)>`. Desde ahí, `copy tftp flash` funciona igual sobre **cualquier**
+interfaz IP que le des — la diferencia entre los tres métodos siguientes es sólo qué interfaz
+configuras y por dónde llega el TFTP.
+
+**Con transceptor AUI (Ethernet)** — la vía más simple si lo tienes:
 
 ```text
 Router(boot)> enable
@@ -452,7 +450,19 @@ Router(boot)# copy tftp flash
 Responde a las preguntas: dirección del servidor TFTP (`192.168.104.10`), nombre del fichero
 (`c2500-i-l.123-26.bin`) y confirma **borrar la flash** cuando lo pida.
 
-4. Restaura el arranque normal y reinicia:
+**Sin transceptor AUI** — el `Serial0` es una interfaz IP como cualquier otra: conéctalo a un
+router que sí llegue a la LAN (por ejemplo un Cisco 2620) para que haga de pasarela, y repite el
+mismo `copy tftp flash` pero configurando `Serial0` en vez de `Ethernet0`. Es tan fiable como la
+vía Ethernet, sólo que necesita un cable V.35 y un router libre. Procedimiento completo, con
+direccionamiento, cables y la ruta de vuelta en el servidor TFTP, en el plan de contingencia de
+cada equipo:
+[`RT-C2503-01`](../equipos/RT-C2503-01/plan-contingencia.md#b2--tftp-por-enlace-serie-usando-otro-router-como-pasarela-) ·
+[`RT-C2503-02`](../equipos/RT-C2503-02/plan-contingencia.md#b2--tftp-por-enlace-serie-usando-otro-router-como-pasarela-).
+
+**Sin ningún router libre** — último recurso por `copy console flash` (XMODEM), muy lento y frágil;
+también documentado en el plan de contingencia de cada 2503.
+
+Cuando termines por cualquier vía, restaura el arranque normal y reinicia:
 
 ```text
 Router(boot)# configure terminal
@@ -461,8 +471,6 @@ Router(boot)(config)# end
 Router(boot)# write memory
 Router(boot)# reload
 ```
-
-> ⚠️ El transceptor **AUI a RJ-45** debe estar conectado o `Ethernet0` no levantará y no habrá TFTP.
 
 ---
 

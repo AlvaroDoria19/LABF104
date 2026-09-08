@@ -191,8 +191,8 @@ commit
 
 ## 🧾 Checklist de intervención
 
-Copia este bloque en las [notas del equipo](README.md#-notas-e-historial-de-este-equipo) o en la
-[bitácora general](../../docs/04-bitacora.md) cada vez que intervengas:
+Copia este bloque en las [notas del equipo](README.md#-notas-e-historial-de-este-equipo) cada vez
+que intervengas:
 
 ````markdown
 ### Intervención — SW-EX2300-02 — AAAA-MM-DD
@@ -205,11 +205,11 @@ Copia este bloque en las [notas del equipo](README.md#-notas-e-historial-de-este
 - [ ] Imagen usada (nombre exacto): ...
 - [ ] Fuente de la imagen: Google Drive / PC del laboratorio / repositorio
 - [ ] Credenciales nuevas anotadas en la ficha y en el README: sí / no
-- [ ] Respaldo de la configuración final subido a backups/configs/: sí / no
+- [ ] Respaldo de la configuración final subido al servidor TFTP (PC-1): sí / no
 - [ ] Verificación final OK: sí / no
 - Tiempo total: ... min · Realizado por: ...
 ````
 
 ---
 
-[⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md) · [📝 Bitácora](../../docs/04-bitacora.md)
+[⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)

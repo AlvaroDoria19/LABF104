@@ -21,9 +21,9 @@ equipo queda inservible.
 | `SW-3C4210-01/02` | ⚠️ pendiente (`dir flash:/`) | ⚠️ pendiente |  | ☐ | ☐ |
 | `SW-C2900XL-01` | `c2900xl-hs-mz-112.8.11-SA6.bin` | IOS 11.2(8.11)SA6 |  | ☐ | ☐ |
 | `SW-C2950-01` | `c2950-i6q4l2-mz.121-22.EA13.bin` | IOS 12.1(22)EA13 |  | ☐ | ☐ |
-| `RT-C2503-01` | `c2500-j-l_112-17.bin` | IOS 11.2(17) Enterprise | `7 992 252` | | ☐ | ☐ |
+| `RT-C2503-01` | `c2500-j-l_112-17.bin` (7 992 252 bytes) | IOS 11.2(17) Enterprise |  | ☐ | ☐ |
 | `RT-C2503-02` | `igs-inr-l.111-17` ⚠️ sin extensión | IOS 11.1(17) `INR` |  | ☐ | ☐ |
-| `RT-C2620-01` | `c2600-is-mz.122-27.bin` | IOS 12.2(27) IP Plus | `10 310 952` | | ☐ | ☐ |
+| `RT-C2620-01` | `c2600-is-mz.122-27.bin` (10 310 952 bytes) | IOS 12.2(27) IP Plus |  | ☐ | ☐ |
 | `RT-C2620-02` | `c2600-is-mz.122-27` ⚠️ confirmar nombre | IOS 12.2(27) IP Plus |  | ☐ | ☐ |
 | `SW-PC7024-01…03` | ⚠️ `.stk` pendiente (`show version`) | ⚠️ pendiente |  | ☐ | ☐ |
 | `SW-EX2300-01/02` | `junos-arm-32-18.1R3.3.tgz` | Junos 18.1R3.3 |  | ☐ | ☐ |

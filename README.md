@@ -24,7 +24,6 @@
 | 📊 [Comparativa](docs/01-comparativa.md) | Vista de conjunto, memoria, riesgos y qué usar para qué |
 | 🚨 [Contingencia general](docs/02-plan-contingencia.md) | Procedimientos comunes y servidor de rescate |
 | ⚡ [Chuleta general](docs/03-chuleta-comandos.md) | «Piedra Rosetta»: el mismo comando en las 4 CLI |
-| 📝 [Bitácora](docs/04-bitacora.md) | Incidencias, préstamos y mantenimiento |
 | 🏷️ [Etiquetas QR](etiquetas/README.md) | Hoja A4 lista para imprimir con los 19 códigos QR |
 
 ---
@@ -112,7 +111,7 @@ Se pierden y **dejan el equipo irrecuperable**.
 > [!WARNING]
 > **Ningún equipo Cisco del laboratorio tiene SSH** (confirmado con `show version`: el 2950 corre
 > `Standard Image` y los 2620 la imagen `C2600-IS-M`, ambas sin criptografía). Todo el acceso
-> remoto a los Cisco es **Telnet*.  Ver [avisos transversales](docs/01-comparativa.md#️-avisos-transversales-del-laboratorio).
+> remoto a los Cisco es **Telnet en claro**. Ver [avisos transversales](docs/01-comparativa.md#️-avisos-transversales-del-laboratorio).
 
 ### Servidor de apoyo
 
@@ -217,17 +216,18 @@ CiscoLabs/
 ├── docs/
 │   ├── 01-comparativa.md           ← vista de conjunto, memoria, riesgos
 │   ├── 02-plan-contingencia.md     ← procedimientos comunes y servidor de rescate
-│   ├── 03-chuleta-comandos.md      ← «Piedra Rosetta» de las 4 CLI
-│   └── 04-bitacora.md              ← registro de incidencias
+│   └── 03-chuleta-comandos.md      ← el mismo comando en las 4 CLI
 ├── etiquetas/                      ← CÓDIGOS QR PARA EL CHASIS
 │   ├── etiquetas-QR-F104.pdf       ← hoja A4 lista para imprimir (2 páginas)
 │   ├── qr/<ID>.png                 ← los 19 QR por separado
 │   ├── logo/EMBLEMA-USFX-logo.png  ← emblema de la universidad
 │   └── generar-etiquetas.py        ← script para regenerarlos
 └── backups/
-    ├── configs/                    ← respaldos de configuración (versionados)
     └── imagenes/                   ← inventario y checksums de las imágenes
 ```
+
+> Los respaldos de **configuración** ya no se versionan en Git: se guardan en el servidor TFTP
+> (PC-1, `D:\Backups`) y, si hace falta, en el Google Drive del laboratorio.
 
 ---
 

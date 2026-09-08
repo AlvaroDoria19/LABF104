@@ -72,8 +72,10 @@ Ordenado por prioridad de respaldo. **Los EOL sin distribución son los irreempl
 | 🟡 3 | Juniper SRX300 | ⚠️ pendiente | ❌ No | ✅ Portal de Juniper (con cuenta) |
 | 🟢 4 | TP-Link TL-MR3420 | `lede-17.01.7-…-tl-mr3420-v1-…bin` | ❌ No | ✅ Archivo de descargas de OpenWRT |
 
-† Los dos Cisco 2503 **necesitan el transceptor AUI→RJ-45** para tener LAN, o bien sacar la imagen
-por `Serial0` usando un Cisco 2620 como pasarela.
+† Los dos Cisco 2503 necesitan el transceptor AUI→RJ-45 para tener LAN por Ethernet. **No es
+obligatorio**: sin él, la imagen y la configuración se recuperan igualmente por `Serial0` usando
+un Cisco 2620 como pasarela — procedimiento completo en el plan de contingencia de cada 2503.
+El transceptor sigue siendo recomendable porque es más rápido y no ocupa un router entero.
 
 ---
 
@@ -166,4 +168,4 @@ velocidad y el #2 sólo **6**. Confírmalo con `show diag` antes de repartir las
 
 ---
 
-[⬅️ Volver al inicio](../README.md) · [📇 Equipos](../equipos/README.md) · [🚨 Contingencia](02-plan-contingencia.md) · [⚡ Chuleta](03-chuleta-comandos.md) · [📝 Bitácora](04-bitacora.md)
+[⬅️ Volver al inicio](../README.md) · [📇 Equipos](../equipos/README.md) · [🚨 Contingencia](02-plan-contingencia.md) · [⚡ Chuleta](03-chuleta-comandos.md)

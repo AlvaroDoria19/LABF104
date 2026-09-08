@@ -34,7 +34,7 @@
 - ⚠️ **4 MB de DRAM.** Es el techo real de este equipo: **no se puede actualizar a IOS 12.x** (12.0 IP ya pide 6-8 MB y 12.3 exige 16 MB de DRAM y 16 MB de flash). Queda fijado en IOS 11.x.
 - ⚠️ **Flash de 8 MB con sólo 396 KB libres.** No cabe una segunda imagen: para actualizar hay que **borrar la actual primero**, lo que deja el router sin sistema durante el proceso.
 - ⚠️ **Flash marcada `Read ONLY`**: es normal (el IOS se ejecuta *desde* la flash). Para escribir en ella hay que arrancar desde ROM — ver el plan de contingencia.
-- ❌ **Sin transceptor AUI, no hay LAN.** El conector largo de 15 pines es `Ethernet0`; sin un transceptor AUI→RJ-45 la interfaz se queda en `up/down`.
+- ⚠️ **Sin transceptor AUI, `Ethernet0` se queda en `up/down`.** El conector largo de 15 pines es el AUI; sin el transceptor no hay LAN por esa vía. **No es bloqueante**: el [plan de contingencia](plan-contingencia.md#b2--tftp-por-enlace-serie-usando-otro-router-como-pasarela-) documenta cómo recuperar la imagen y respaldar la configuración por el `Serial0`, usando un Cisco 2620 como pasarela hacia la LAN.
 - ❌ **Sin SSH** y **sin servidor DHCP** (llegó en IOS 12.0). Sólo Telnet y `ip helper-address`.
 - ❌ **Sin FastEthernet** y **sin sub-interfaces 802.1Q** en el puerto Ethernet.
 
@@ -54,4 +54,4 @@ show running-config
 
 ---
 
-[⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md) · [📝 Bitácora](../../docs/04-bitacora.md)
+[⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)

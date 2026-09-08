@@ -36,7 +36,7 @@
 - ❌ **Sin SSH.** Sólo Telnet en claro → gestión restringida a la VLAN 104 con ACL.
 - ⚠️ **IOS distinto al del `RT-C2503-01`** (11.1 `INR` frente a 11.2 `Enterprise`). Son equipos físicamente iguales con software y capacidades diferentes: **no asumas que una práctica que funciona en uno funciona en el otro**.
 - ⚠️ **Flash marcada `Read ONLY`** (normal en *run-from-flash*): para escribir hay que arrancar desde ROM.
-- ❌ **Sin transceptor AUI, no hay LAN.** El conector largo de 15 pines es `Ethernet0`.
+- ⚠️ **Sin transceptor AUI, `Ethernet0` se queda en `up/down`.** El conector largo de 15 pines es el AUI; sin el transceptor no hay LAN por esa vía. **No es bloqueante**: el [plan de contingencia](plan-contingencia.md#b2--tftp-por-enlace-serie-usando-otro-router-como-pasarela-) documenta cómo recuperar la imagen y respaldar la configuración por el `Serial0`, usando un Cisco 2620 como pasarela hacia la LAN.
 - ❌ Sin FastEthernet ni sub-interfaces 802.1Q.
 
 ---
@@ -55,4 +55,4 @@ show running-config
 
 ---
 
-[⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md) · [📝 Bitácora](../../docs/04-bitacora.md)
+[⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)

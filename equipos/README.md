@@ -109,4 +109,4 @@ Todas las fichas y todos los planes de contingencia incluyen el mismo bloque de 
 
 ---
 
-[⬅️ Volver al inicio](../README.md) · [📊 Comparativa](../docs/01-comparativa.md) · [🚨 Contingencia general](../docs/02-plan-contingencia.md) · [⚡ Chuleta general](../docs/03-chuleta-comandos.md) · [🏷️ Etiquetas QR](../etiquetas/README.md) · [📝 Bitácora](../docs/04-bitacora.md)
+[⬅️ Volver al inicio](../README.md) · [📊 Comparativa](../docs/01-comparativa.md) · [🚨 Contingencia general](../docs/02-plan-contingencia.md) · [⚡ Chuleta general](../docs/03-chuleta-comandos.md) · [🏷️ Etiquetas QR](../etiquetas/README.md)

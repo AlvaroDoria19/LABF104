@@ -8,7 +8,7 @@
 
 ## 📌 Índice
 
-- [🗺️ Piedra Rosetta: el mismo comando en las 4 CLI](#️-piedra-rosetta-el-mismo-comando-en-las-4-cli)
+- [🗺️ El mismo comando en las 4 CLI](#️-el-mismo-comando-en-las-4-cli)
 - [🔵 Cisco IOS](#-cisco-ios--2900xl-2950-2503-2620) — 2900XL · 2950 · 2503 · 2620
 - [🟢 3Com Comware](#-3com-comware--4500g-4210) — 4500G · 4210
 - [🟡 Dell PowerConnect](#-dell-powerconnect--7024) — 7024
