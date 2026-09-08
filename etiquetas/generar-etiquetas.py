@@ -39,8 +39,8 @@ EQUIPOS = [
     ("RT-C2620-02",   "Cisco 2620",       ""),
     ("RT-MR3420-01",  "TL-MR3420 OpenWRT", "172.16.10.1/24"),
     ("RT-MR3420-02",  "TL-MR3420 OpenWRT", "192.168.1.1/24"),
-    ("FW-SRX300-01",  "Juniper SRX300",   ""),
-    ("FW-SRX300-02",  "Juniper SRX300",   ""),
+    ("FW-SRX320-01",  "Juniper SRX320",   ""),
+    ("FW-SRX320-02",  "Juniper SRX320",   ""),
 ]
 
 

@@ -1,6 +1,6 @@
-# 🚨 FW-SRX300-01 — Plan de contingencia
+# 🚨 FW-SRX320-02 — Plan de contingencia
 
-**Juniper SRX300**
+**Juniper SRX320**
 
 [🏠 Ficha del equipo](README.md) · [⭐ Características](caracteristicas.md) · [⚡ Chuleta de comandos](chuleta-comandos.md) · [🚨 Plan de contingencia](plan-contingencia.md)
 
@@ -119,7 +119,7 @@ loader> install --format --external file:///junos-srxsme-<version>.tgz
 ```
 
 > ⚠️ **La sintaxis exacta depende del modelo y del cargador.** Consulta la KB de recuperación de
-> Juniper para la serie SRX300 antes de ejecutarlo y **anota aquí el comando que funcionó**:
+> Juniper para la serie SRX320 antes de ejecutarlo y **anota aquí el comando que funcionó**:
 >
 > `Comando verificado en este equipo: ______________________________________`
 
@@ -127,7 +127,7 @@ loader> install --format --external file:///junos-srxsme-<version>.tgz
 
 ```text
 configure
-load override /var/tmp/FW-SRX300-01_base.conf
+load override /var/tmp/FW-SRX320-02_base.conf
 commit confirmed 5
 commit
 exit
@@ -154,12 +154,12 @@ request system firmware upgrade re bios
 show configuration | display set | no-more
 ```
 
-Copia la salida a `backups/configs/FW-SRX300-01_AAAA-MM-DD.conf`.
+Copia la salida a `backups/configs/FW-SRX320-02_AAAA-MM-DD.conf`.
 
 **Traer el fichero a la PC del laboratorio** con `scp` desde Windows:
 
 ```text
-scp lab-admin@192.168.104.51:/config/juniper.conf.gz C:\LabF104\imagenes\FW-SRX300-01_juniper.conf.gz
+scp lab-admin@192.168.104.52:/config/juniper.conf.gz C:\LabF104\imagenes\FW-SRX320-02_juniper.conf.gz
 ```
 
 **A un USB, desde el propio equipo:**
@@ -172,7 +172,7 @@ start shell user root
 ls /dev/da*
 mkdir -p /var/tmp/usb
 mount_msdosfs /dev/da0s1 /var/tmp/usb
-cp /config/juniper.conf.gz /var/tmp/usb/FW-SRX300-01_juniper.conf.gz
+cp /config/juniper.conf.gz /var/tmp/usb/FW-SRX320-02_juniper.conf.gz
 ls -lh /var/tmp/usb
 umount /var/tmp/usb
 exit
@@ -182,7 +182,7 @@ exit
 
 ```text
 configure
-load override /var/tmp/FW-SRX300-01_base.conf
+load override /var/tmp/FW-SRX320-02_base.conf
 commit confirmed 5
 commit
 ```
@@ -195,7 +195,7 @@ Copia este bloque en las [notas del equipo](README.md#-notas-e-historial-de-este
 que intervengas:
 
 ````markdown
-### Intervención — FW-SRX300-01 — AAAA-MM-DD
+### Intervención — FW-SRX320-02 — AAAA-MM-DD
 
 - [ ] Aviso previo: no había práctica en curso
 - [ ] Síntoma observado: ...

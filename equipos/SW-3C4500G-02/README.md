@@ -25,7 +25,7 @@
 
 ## 🔑 Acceso
 
-> Credenciales **compartidas por toda la familia «Switches 3Com»** (`SW-3C4500G-02/02` · `SW-3C4210-01/02`).
+> Credenciales **compartidas por toda la familia «Switches 3Com»** (`SW-3C4500G-01/02` · `SW-3C4210-01/02`).
 > Si las cambias, actualiza también los demás ficheros de la familia y el [README](../../README.md).
 
 | Dato | Valor |

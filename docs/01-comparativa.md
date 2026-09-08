@@ -20,7 +20,7 @@
 | **Cisco 2620** | 2 | L3 | 1 FE + serie múltiple | IOS 12.2(27) **IP Plus** | ❌ | — | RIP, EIGRP, OSPF, BGP, IS-IS | — |
 | **Dell PowerConnect 7024** | 3 | L2/L3 | 24 GbE + 4 SFP | ⚠️ pendiente | ✅ | MSTP/PVSTP+ | RIP, OSPFv2/v3 | ✅ |
 | **Juniper EX2300-24T** | 2 | L2/L3 | 24 GbE + 4 SFP+ | Junos 18.1R3.3 | ✅ | RSTP/MSTP/VSTP | Estático, RIP, OSPF⚠️ | ✅ |
-| **Juniper SRX300** | 2 | L3–L7 | 6 GbE + 2 SFP | ⚠️ pendiente | ✅ | RSTP/MSTP | RIP, OSPF, BGP, IS-IS | — |
+| **Juniper SRX320** | 2 | L3–L7 | 6 GbE + 2 SFP | ⚠️ pendiente | ✅ | RSTP/MSTP | RIP, OSPF, BGP, IS-IS | — |
 | **TP-Link TL-MR3420** | 2 | L3 + WiFi | 4 LAN + 1 WAN + USB | LEDE 17.01 `git-19.167…` | ✅ | STP opcional | Sólo estático ⚠️ | ✅ (WPA2-Ent.) |
 
 ⚠️ Ver [datos pendientes](#-datos-pendientes-de-capturar) al final. El detalle de cada chasis está
@@ -43,7 +43,7 @@ Ordenado por prioridad de respaldo. **Los EOL sin distribución son los irreempl
 | 🟠 2 | Cisco 2620 | `c2600-is-mz.122-27.bin` | ✅ FTP/TFTP | ❌ EOL sin distribución |
 | 🟡 3 | Dell PC7024 | `.stk` ⚠️ | ⚠️ Probablemente no | ⚠️ Soporte de Dell |
 | 🟡 3 | Juniper EX2300 | `junos-arm-32-18.1R3.3.tgz` | ❌ No | ✅ Portal de Juniper (con cuenta) |
-| 🟡 3 | Juniper SRX300 | ⚠️ pendiente | ❌ No | ✅ Portal de Juniper (con cuenta) |
+| 🟡 3 | Juniper SRX320 | ⚠️ pendiente | ❌ No | ✅ Portal de Juniper (con cuenta) |
 | 🟢 4 | TP-Link TL-MR3420 | `lede-17.01.7-…-tl-mr3420-v1-…bin` | ❌ No | ✅ Archivo de descargas de OpenWRT |
 
 † Los dos Cisco 2503 necesitan el transceptor AUI→RJ-45 para tener LAN por Ethernet. **No es
@@ -67,14 +67,16 @@ El transceptor sigue siendo recomendable porque es más rápido y no ocupa un ro
 | Apilamiento y multicast (PIM) | Dell PowerConnect 7024 | Hasta 12 unidades y PIM-DM/SM |
 | Junos, `commit confirmed`, `rollback` | **Juniper EX2300** | Modelo de configuración transaccional |
 | Virtual Chassis | Juniper EX2300 (los 2) | Dos switches gestionados como uno |
-| Firewall por zonas, NAT, IPsec | **Juniper SRX300** (los 2) | Túnel real entre las dos unidades |
-| Alta disponibilidad | Juniper SRX300 (los 2) | Chassis Cluster de 2 nodos |
+| Firewall por zonas, NAT, IPsec | **Juniper SRX320** (los 2) | Túnel real entre las dos unidades |
+| Alta disponibilidad | Juniper SRX320 (los 2) | Chassis Cluster de 2 nodos |
 | **WiFi: 802.11n, WPA2, AP/cliente, WDS** | **TP-Link TL-MR3420** (los 2) | Los **únicos equipos con radio** del laboratorio |
 | Router Linux: iptables, dnsmasq, UCI | TP-Link TL-MR3420 | Deja ver por dentro lo que hacen los Cisco y Juniper |
 | Conmutación por fallo a red móvil | TP-Link TL-MR3420 | Puerto USB para módem 3G/4G |
 | Comparar 5 sintaxis de CLI | 2950 + 4500G + PC7024 + EX2300 + MR3420 | IOS vs Comware vs Dell vs Junos vs Linux/UCI |
 
 ---
+
+**Los dos Cisco 2503 no son gemelos.** Mismo hardware, software distinto:
 
 | | `RT-C2503-01` | `RT-C2503-02` |
 |---|---|---|
@@ -84,6 +86,8 @@ El transceptor sigue siendo recomendable porque es más rápido y no ocupa un ro
 | IPX / AppleTalk / DECnet | ✅ Todos | Sólo IPX |
 | Flash libre | 396 KB | ⚠️ pendiente |
 
+No asumas que una práctica que funciona en uno funciona en el otro.
+
 ---
 
 ## 📋 Datos pendientes de capturar
@@ -92,7 +96,7 @@ El transceptor sigue siendo recomendable porque es más rápido y no ocupa un ro
 |---|---|---|
 | `SW-3C4210-01/02` | **Todo**: versión, imagen, memoria, nº de serie | `display version` · `dir flash:/` |
 | `SW-PC7024-01…03` | Versión de firmware, nombre del `.stk` y nº de serie | `show version` |
-| `FW-SRX300-01/02` | **Versión de Junos** y nº de serie | `show system information` · `show chassis hardware` |
+| `FW-SRX320-01/02` | **Versión de Junos** y nº de serie | `show system information` · `show chassis hardware` |
 | `SW-3C4500G-01/02` | Nombre del fichero `.bin` y nº de serie | `dir flash:/` · `display device manuinfo` |
 | `RT-C2620-02` | Nombre exacto de la imagen y flash libre | `show flash:` |
 | `RT-MR3420-01/02` | **Revisión de hardware** (v1/v2/v5) y espacio libre en flash | `ubus call system board` · `df -h /overlay` |

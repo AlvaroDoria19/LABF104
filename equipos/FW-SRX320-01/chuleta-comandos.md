@@ -1,6 +1,6 @@
-# ⚡ FW-SRX300-01 — Chuleta de comandos
+# ⚡ FW-SRX320-01 — Chuleta de comandos
 
-**Juniper SRX300**
+**Juniper SRX320**
 
 [🏠 Ficha del equipo](README.md) · [⭐ Características](caracteristicas.md) · [⚡ Chuleta de comandos](chuleta-comandos.md) · [🚨 Plan de contingencia](plan-contingencia.md)
 
@@ -101,7 +101,7 @@ set security nat destination rule-set ENTRADA rule WEB then destination-nat pool
 commit
 ```
 
-### VPN IPsec *route-based* (la práctica estrella con los dos SRX300)
+### VPN IPsec *route-based* (la práctica estrella con los dos SRX320)
 
 ```text
 set security ike proposal P1 authentication-method pre-shared-keys dh-group group14 authentication-algorithm sha-256 encryption-algorithm aes-256-cbc
@@ -142,7 +142,7 @@ clear security flow session all
 > `show security policies hit-count` te dice qué políticas se están usando de verdad — perfecto
 > para depurar por qué el tráfico no pasa.
 
-### Chassis Cluster (los dos SRX300 en alta disponibilidad)
+### Chassis Cluster (los dos SRX320 en alta disponibilidad)
 
 ```text
 set chassis cluster cluster-id 1 node 0 reboot      ! en el nodo 0

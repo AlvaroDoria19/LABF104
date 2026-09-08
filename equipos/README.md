@@ -69,8 +69,8 @@
 
 | Equipo | Modelo | SO instalado | Documentos |
 |---|---|---|---|
-| **[`FW-SRX300-01`](FW-SRX300-01/)** | Juniper SRX300 | ⚠️ pendiente | [⭐](FW-SRX300-01/caracteristicas.md) [⚡](FW-SRX300-01/chuleta-comandos.md) [🚨](FW-SRX300-01/plan-contingencia.md) |
-| **[`FW-SRX300-02`](FW-SRX300-02/)** | Juniper SRX300 | ⚠️ pendiente | [⭐](FW-SRX300-02/caracteristicas.md) [⚡](FW-SRX300-02/chuleta-comandos.md) [🚨](FW-SRX300-02/plan-contingencia.md) |
+| **[`FW-SRX320-01`](FW-SRX320-01/)** | Juniper SRX320 | ⚠️ pendiente | [⭐](FW-SRX320-01/caracteristicas.md) [⚡](FW-SRX320-01/chuleta-comandos.md) [🚨](FW-SRX320-01/plan-contingencia.md) |
+| **[`FW-SRX320-02`](FW-SRX320-02/)** | Juniper SRX320 | ⚠️ pendiente | [⭐](FW-SRX320-02/caracteristicas.md) [⚡](FW-SRX320-02/chuleta-comandos.md) [🚨](FW-SRX320-02/plan-contingencia.md) |
 
 
 > Leyenda: ⭐ características · ⚡ chuleta de comandos · 🚨 plan de contingencia
@@ -95,7 +95,7 @@ Todas las fichas y todos los planes de contingencia incluyen el mismo bloque de 
 |---|---|---|
 | `SW-3C4210-01/02` | **Todo**: versión, imagen, memoria, nº de serie | `display version` · `dir flash:/` |
 | `SW-PC7024-01…03` | Versión de firmware, nombre del `.stk` y nº de serie | `show version` |
-| `FW-SRX300-01/02` | **Versión de Junos** y nº de serie | `show system information` · `show chassis hardware` |
+| `FW-SRX320-01/02` | **Versión de Junos** y nº de serie | `show system information` · `show chassis hardware` |
 | `SW-3C4500G-01/02` | Nombre del fichero `.bin` y nº de serie | `dir flash:/` · `display device manuinfo` |
 | `SW-C2900XL-01` · `SW-C2950-01` | Tamaño y espacio libre de flash | `dir flash:` |
 | `RT-C2620-02` | Nombre exacto de la imagen y flash libre | `show flash:` |

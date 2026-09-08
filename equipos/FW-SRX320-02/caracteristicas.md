@@ -1,6 +1,6 @@
-# ⭐ FW-SRX300-02 — Características y protocolos
+# ⭐ FW-SRX320-02 — Características y protocolos
 
-**Juniper SRX300** · Firewall de nueva generación / router de servicios con Junos. Políticas por zonas, NAT, IPsec y alta disponibilidad en clúster de 2 nodos.
+**Juniper SRX320** · Firewall de nueva generación / router de servicios con Junos. Políticas por zonas, NAT, IPsec y alta disponibilidad en clúster de 2 nodos.
 
 [🏠 Ficha del equipo](README.md) · [⭐ Características](caracteristicas.md) · [⚡ Chuleta de comandos](chuleta-comandos.md) · [🚨 Plan de contingencia](plan-contingencia.md)
 
@@ -10,13 +10,13 @@
 
 - **Firewall con estado y políticas por zonas**: el modelo de seguridad más didáctico que existe. Zonas + políticas + *screens* enseñan a pensar en seguridad de red, no sólo en listas de acceso.
 - **NAT completo en las tres direcciones**: *source NAT* (PAT), *destination NAT* (publicar servidores) y *static NAT*. Cubre todo el temario de traducción de direcciones.
-- **IPsec VPN site-to-site**, *route-based* con interfaces `st0` y *policy-based*, IKEv1 e IKEv2. Con los **dos SRX300** se monta un túnel real entre dos sedes — la práctica estrella del laboratorio.
-- **Chassis Cluster de 2 nodos**: con la pareja de SRX300 se puede montar alta disponibilidad real (interfaces `reth`, *redundancy groups*, conmutación por fallo). Muy pocos laboratorios docentes pueden hacer esto.
+- **IPsec VPN site-to-site**, *route-based* con interfaces `st0` y *policy-based*, IKEv1 e IKEv2. Con los **dos SRX320** se monta un túnel real entre dos sedes — la práctica estrella del laboratorio.
+- **Chassis Cluster de 2 nodos**: con la pareja de SRX320 se puede montar alta disponibilidad real (interfaces `reth`, *redundancy groups*, conmutación por fallo). Muy pocos laboratorios docentes pueden hacer esto.
 - **Enrutamiento completo**: estático, RIP, **OSPFv2/v3**, **BGP** e **IS-IS**, además de *routing instances* (VRF). Es el equipo con más protocolos de enrutamiento del laboratorio.
 - **Modo conmutador** (`ethernet-switching` con VLANs e IRB): puede hacer de switch además de firewall.
 - **`show security flow session`**: ver la tabla de sesiones en vivo es la mejor herramienta pedagógica para explicar qué significa «firewall con estado».
 - **Mismo Junos que los EX2300**: el alumno reutiliza toda la sintaxis aprendida en los switches.
-- **Sin ventilador**: silencioso, se puede tener encendido en el aula sin molestar.
+- **2 ranuras Mini-PIM**: a diferencia del SRX300, este SRX320 admite módulos de expansión (ADSL2+/VDSL2, T1/E1, serie, LTE, WiFi). Si alguna ranura está poblada con un módulo serie, es el único firewall del laboratorio con WAN serie real además de Ethernet — confírmalo con `show chassis hardware`.
 
 ---
 
@@ -39,7 +39,7 @@
 ## ⚠️ Limitaciones de este equipo
 
 - ⚠️ **Falta la versión de Junos de este equipo.** El `show system firmware` que capturaste sólo devuelve el BIOS del Routing Engine, no la versión del sistema operativo. **Ejecuta `show system information` y `show chassis hardware`** y rellena las tablas de la [ficha](README.md).
-- ❌ **Sin ranuras Mini-PIM.** El SRX300 no admite módulos de expansión (ADSL/VDSL, T1/E1, serie, LTE): eso es exclusivo del SRX320 y superiores. Todas las prácticas WAN de este equipo van por Ethernet; para WAN serie usa los Cisco 2620 y 2503.
+- ⚠️ **Confirma qué llevan las 2 ranuras Mini-PIM.** Pueden estar vacías o con un módulo instalado (ADSL/VDSL, T1/E1, serie, LTE, WiFi) — `show chassis hardware` lo dice. Si no hay ningún módulo serie, las prácticas de WAN serie de este equipo van por Ethernet; para eso usa los Cisco 2620 y 2503.
 - ⚠️ **UTM, IPS y ATP requieren suscripción de pago.** Sin licencia tienes firewall, NAT, VPN y enrutamiento — más que suficiente para el temario. Comprueba qué hay con `show system license`.
 - ⚠️ **El error nº 1 con los SRX**: una política de seguridad **no basta** para poder gestionar el equipo. Hace falta además `host-inbound-traffic` en la zona. Si no puedes hacer ping ni SSH al firewall, es esto.
 - ⚠️ **El usuario `root` debe tener contraseña antes del primer `commit`** o el commit falla.

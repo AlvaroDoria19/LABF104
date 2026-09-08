@@ -12,7 +12,7 @@
 - [🔵 Cisco IOS](#-cisco-ios--2900xl-2950-2503-2620) — 2900XL · 2950 · 2503 · 2620
 - [🟢 3Com Comware](#-3com-comware--4500g-4210) — 4500G · 4210
 - [🟡 Dell PowerConnect](#-dell-powerconnect--7024) — 7024
-- [🟣 Juniper Junos](#-juniper-junos--ex2300-srx300) — EX2300 · SRX300
+- [🟣 Juniper Junos](#-juniper-junos--ex2300-srx320) — EX2300 · SRX320
 - [🟠 OpenWRT / LEDE](#-openwrt--lede--tl-mr3420) — TL-MR3420
 - [🔥 Juniper SRX: firewall, NAT y VPN](#-juniper-srx-firewall-nat-y-vpn)
 - [🧰 Comandos de emergencia](#-comandos-de-emergencia-los-10-imprescindibles)
@@ -504,7 +504,7 @@ reload
 
 ---
 
-## 🟣 Juniper Junos — EX2300, SRX300
+## 🟣 Juniper Junos — EX2300, SRX320
 
 > Junos tiene **dos modos**: *operacional* (`>`, sólo consulta) y *configuración* (`#`, editas una
 > configuración candidata que **no se aplica hasta `commit`**).
@@ -718,7 +718,7 @@ show log messages | match RT_FLOW_SESSION_DENY
 clear security flow session all           ! ⚠️ corta todas las sesiones activas
 ```
 
-### Chassis Cluster (los 2 SRX300 en alta disponibilidad)
+### Chassis Cluster (los 2 SRX320 en alta disponibilidad)
 
 ```text
 set chassis cluster cluster-id 1 node 0 reboot        ! en el nodo 0

@@ -27,7 +27,7 @@ equipo queda inservible.
 | `RT-C2620-02` | `c2600-is-mz.122-27` ⚠️ confirmar nombre | IOS 12.2(27) IP Plus |  | ☐ | ☐ |
 | `SW-PC7024-01…03` | ⚠️ `.stk` pendiente (`show version`) | ⚠️ pendiente |  | ☐ | ☐ |
 | `SW-EX2300-01/02` | `junos-arm-32-18.1R3.3.tgz` | Junos 18.1R3.3 |  | ☐ | ☐ |
-| `FW-SRX300-01/02` | `junos-srxsme-<version>.tgz` | ⚠️ pendiente | | ☐ | ☐ |
+| `FW-SRX320-01/02` | `junos-srxsme-<version>.tgz` | ⚠️ pendiente | | ☐ | ☐ |
 | `RT-MR3420-01/02` | `lede-17.01.7-ar71xx-generic-tl-mr3420-v1-squashfs-sysupgrade.bin` | LEDE 17.01.7 | | ☐ | ☐ |
 | `RT-MR3420-01/02` (fábrica) | `TL-MR3420_V1_121123.zip` | Firmware original TP-Link | | ☐ | ☐ |
 
@@ -37,7 +37,7 @@ equipo queda inservible.
 |:--:|---|---|
 | 🔴 1 | 3Com 4500G · 3Com 4210 · Cisco 2503 ×2 | EOL sin ninguna distribución posible; el 2503 #1 tiene 396 KB libres en flash |
 | 🟠 2 | Catalyst 2924-XL · Catalyst 2950 · Cisco 2620 ×2 | EOL sin distribución, pero con más margen de flash |
-| 🟡 3 | Dell PC7024 · EX2300 · SRX300 | Aún obtenibles del soporte de Dell / portal de Juniper |
+| 🟡 3 | Dell PC7024 · EX2300 · SRX320 | Aún obtenibles del soporte de Dell / portal de Juniper |
 | 🟢 4 | TL-MR3420 | Descargables del archivo de OpenWRT y del soporte de TP-Link |
 
 ---

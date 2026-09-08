@@ -25,7 +25,7 @@
 
 ## 🔑 Acceso
 
-> Credenciales **compartidas por toda la familia «Switches Dell»** (`SW-PC7024-02…04`).
+> Credenciales **compartidas por toda la familia «Switches Dell»** (`SW-PC7024-01…03`).
 > Si las cambias, actualiza también los demás ficheros de la familia y el [README](../../README.md).
 
 | Dato | Valor |

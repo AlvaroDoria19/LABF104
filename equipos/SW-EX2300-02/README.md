@@ -25,7 +25,7 @@
 
 ## 🔑 Acceso
 
-> Credenciales **compartidas por toda la familia «Switches Juniper»** (`SW-EX2300-02/02`).
+> Credenciales **compartidas por toda la familia «Switches Juniper»** (`SW-EX2300-01/02`).
 > Si las cambias, actualiza también los demás ficheros de la familia y el [README](../../README.md).
 
 | Dato | Valor |

@@ -64,7 +64,7 @@ dirección fija y quedan fuera de la VLAN de gestión:
 |---|---|
 | Switches de 24 puertos (todos) | Franja izquierda del frontal, **antes del puerto 1**, sin tapar los LED de estado |
 | Cisco 2503 / 2620 | Zona lisa del frontal, a la derecha de los LED |
-| Juniper SRX300 | Frontal, junto a los puertos SFP |
+| Juniper SRX320 | Frontal, junto a los puertos SFP |
 | TP-Link TL-MR3420 | Tapa superior o frontal, **sin tapar las rejillas de ventilación** |
 
 **Antes de pegar:**

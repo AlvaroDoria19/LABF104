@@ -37,8 +37,8 @@ comandos y plan de contingencia. El **código QR** de cada equipo apunta a su ca
 |---|---|---|---|---|
 | [`SW-3C4500G-01`](equipos/SW-3C4500G-01/) | [`SW-C2900XL-01`](equipos/SW-C2900XL-01/) | [`SW-PC7024-01`](equipos/SW-PC7024-01/) | [`SW-EX2300-01`](equipos/SW-EX2300-01/) | [`RT-MR3420-01`](equipos/RT-MR3420-01/) |
 | [`SW-3C4500G-02`](equipos/SW-3C4500G-02/) | [`SW-C2950-01`](equipos/SW-C2950-01/) | [`SW-PC7024-02`](equipos/SW-PC7024-02/) | [`SW-EX2300-02`](equipos/SW-EX2300-02/) | [`RT-MR3420-02`](equipos/RT-MR3420-02/) |
-| [`SW-3C4210-01`](equipos/SW-3C4210-01/) | [`RT-C2503-01`](equipos/RT-C2503-01/) | [`SW-PC7024-03`](equipos/SW-PC7024-03/) | [`FW-SRX300-01`](equipos/FW-SRX300-01/) | |
-| [`SW-3C4210-02`](equipos/SW-3C4210-02/) | [`RT-C2503-02`](equipos/RT-C2503-02/) | | [`FW-SRX300-02`](equipos/FW-SRX300-02/) | |
+| [`SW-3C4210-01`](equipos/SW-3C4210-01/) | [`RT-C2503-01`](equipos/RT-C2503-01/) | [`SW-PC7024-03`](equipos/SW-PC7024-03/) | [`FW-SRX320-01`](equipos/FW-SRX320-01/) | |
+| [`SW-3C4210-02`](equipos/SW-3C4210-02/) | [`RT-C2503-02`](equipos/RT-C2503-02/) | | [`FW-SRX320-02`](equipos/FW-SRX320-02/) | |
 | | [`RT-C2620-01`](equipos/RT-C2620-01/) | | | |
 | | [`RT-C2620-02`](equipos/RT-C2620-02/) | | | |
 
@@ -74,7 +74,7 @@ Este mismo bloque está repetido en la **ficha** y en el **plan de contingencia*
 con el nombre del fichero exacto que necesita ese chasis.
 
 📀 Prepara además un **USB de rescate en FAT32 (8–16 GB)** con los `.tgz` de Junos: los EX2300 y
-los SRX300 sólo se recuperan por USB si dejan de arrancar.
+los SRX320 sólo se recuperan por USB si dejan de arrancar.
 
 ---
 
@@ -90,7 +90,7 @@ usuario y contraseña. La tabla también está en la ficha de cada equipo.
 | 🟢 **Switches 3Com** | `SW-3C4500G-01/02` · `SW-3C4210-01/02` | `<super nivel 3>` | Consola · Telnet · SSH¹ · Web |
 | 🟡 **Switches Dell** | `SW-PC7024-01…03` | `<enable>` | Consola · SSH · Web |
 | 🟣 **Switches Juniper** | `SW-EX2300-01/02` | `<root>` | Consola · SSH · J-Web |
-| 🟣 **Firewalls Juniper** | `FW-SRX300-01/02` | `<root>` | Consola · SSH · J-Web |
+| 🟣 **Firewalls Juniper** | `FW-SRX320-01/02` | `admin1234` | Consola · SSH · J-Web |
 | 🟠 **Routers TP-Link (OpenWRT)** | `RT-MR3420-01/02` | — (`root` es ya el superusuario) | SSH · LuCI (web) · telnet en *failsafe* |
 
 ¹ SSH disponible en el 4500G (Comware v5). En el 4210 ⚠️ por confirmar.
@@ -111,7 +111,7 @@ Se pierden y **dejan el equipo irrecuperable**.
 > [!WARNING]
 > **Ningún equipo Cisco del laboratorio tiene SSH** (confirmado con `show version`: el 2950 corre
 > `Standard Image` y los 2620 la imagen `C2600-IS-M`, ambas sin criptografía). Todo el acceso
-> remoto a los Cisco es **Telnet en claro**. Ver [avisos transversales](docs/01-comparativa.md#️-avisos-transversales-del-laboratorio).
+> remoto a los Cisco es **Telnet en claro**.
 
 ### Servidor de apoyo
 
@@ -134,7 +134,7 @@ Se pierden y **dejan el equipo irrecuperable**.
 | 3 | Dell PowerConnect 7024 | Switch gestionable | L2/L3 | ⚠️ pendiente | [01](equipos/SW-PC7024-01/) · [02](equipos/SW-PC7024-02/) · [03](equipos/SW-PC7024-03/) |
 | 2 | Juniper EX2300-24T | Switch gestionable | L2/L3 | Junos 18.1R3.3 | [01](equipos/SW-EX2300-01/) · [02](equipos/SW-EX2300-02/) |
 | 2 | TP-Link TL-MR3420 | Router inalámbrico (OpenWRT) | L3 | LEDE 17.01 `git-19.167…` | [01](equipos/RT-MR3420-01/) · [02](equipos/RT-MR3420-02/) |
-| 2 | Juniper SRX300 | Firewall / Router de servicios | L3–L7 | ⚠️ pendiente | [01](equipos/FW-SRX300-01/) · [02](equipos/FW-SRX300-02/) |
+| 2 | Juniper SRX320 | Firewall / Router de servicios | L3–L7 | ⚠️ pendiente | [01](equipos/FW-SRX320-01/) · [02](equipos/FW-SRX320-02/) |
 | **19** | **Total de equipos** | | | | |
 
 ---
@@ -182,10 +182,10 @@ sudo screen /dev/ttyUSB0 9600
 ## 🏷️ Convenciones del laboratorio
 
 **Nomenclatura de hostname:** `F104-<TIPO>-<MODELO>-<NN>`
-Ejemplos: `F104-SW-4500G-01`, `F104-RT-2620-02`, `F104-FW-SRX300-01`
+Ejemplos: `F104-SW-4500G-01`, `F104-RT-2620-02`, `F104-FW-SRX320-01`
 
 ⚠️ Varios equipos aún tienen hostnames por defecto o duplicados —
-ver [la tabla de renombrado](docs/01-comparativa.md#️-avisos-transversales-del-laboratorio).
+revisa el hostname de cada equipo en su propia ficha.
 
 **Direccionamiento**
 
@@ -212,7 +212,7 @@ CiscoLabs/
 │   │   ├── chuleta-comandos.md     ← comandos de ese equipo
 │   │   └── plan-contingencia.md    ← contraseña, OS, respaldo, checklist
 │   ├── SW-3C4500G-02/  …           ← misma estructura en las 19 carpetas
-│   └── FW-SRX300-02/
+│   └── FW-SRX320-02/
 ├── docs/
 │   ├── 01-comparativa.md           ← vista de conjunto, memoria, riesgos
 │   ├── 02-plan-contingencia.md     ← procedimientos comunes y servidor de rescate
@@ -236,6 +236,6 @@ CiscoLabs/
 - [x] Pegar el enlace del **Google Drive** en este README y en las fichas y planes de contingencia
 - [x] Anotar el **nombre de la PC del laboratorio** que guarda las imágenes
 - [ ] Rellenar las **credenciales por familia** (arriba y en cada ficha)
-- [ ] Capturar los [datos que faltan](docs/01-comparativa.md#-datos-pendientes-de-capturar): 4210 (todo), PowerConnect (firmware), SRX300 (versión de Junos), TL-MR3420 (revisión de hardware)
+- [ ] Capturar los [datos que faltan](docs/01-comparativa.md#-datos-pendientes-de-capturar): 4210 (todo), PowerConnect (firmware), SRX320 (versión de Junos), TL-MR3420 (revisión de hardware)
 - [ ] Respaldar las imágenes de los equipos 🔴 de [prioridad 1](docs/01-comparativa.md#riesgo-de-pérdida-de-imagen)
 - [x] Renombrar los hostnames duplicados (`L3Switch` ×3, `Router` ×2, `SW_servers`/`SW_SERVERS`)

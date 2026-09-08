@@ -20,13 +20,13 @@
 | **IP de gestión** | `192.168.1.1/24` |
 | **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
-| **Dirección IP (LAN)** | `192.168.1.1/24` — ⚠️ es la **dirección por defecto de OpenWRT**, y también la del SRX300 con configuración de fábrica: si ambos se conectan a la misma red hay conflicto de IP |
+| **Dirección IP (LAN)** | `192.168.1.1/24` — ⚠️ es la **dirección por defecto de OpenWRT**, y también la del SRX320 con configuración de fábrica: si ambos se conectan a la misma red hay conflicto de IP |
 
 ---
 
 ## 🔑 Acceso
 
-> Credenciales **compartidas por toda la familia «Routers TP-Link (OpenWRT)»** (`RT-MR3420-02/02`).
+> Credenciales **compartidas por toda la familia «Routers TP-Link (OpenWRT)»** (`RT-MR3420-01/02`).
 > Si las cambias, actualiza también los demás ficheros de la familia y el [README](../../README.md).
 
 | Dato | Valor |

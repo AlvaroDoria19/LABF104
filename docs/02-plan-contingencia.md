@@ -17,7 +17,7 @@
   - [Cisco 2503 / 2620](#cisco-2503--2620--config-register-0x2142)
   - [3Com 4500G / 4210](#3com-4500g--4210--menú-bootrom)
   - [Dell PowerConnect 7024](#dell-powerconnect-7024--boot-menu)
-  - [Juniper EX2300 / SRX300](#juniper-ex2300--srx300--modo-single-user)
+  - [Juniper EX2300 / SRX320](#juniper-ex2300--srx320--modo-single-user)
   - [TP-Link TL-MR3420 (OpenWRT)](#tp-link-tl-mr3420-openwrt--modo-failsafe)
 - [📀 Recuperación de imágenes de sistema](#-recuperación-de-imágenes-de-sistema)
 
@@ -267,9 +267,9 @@ console# copy running-config startup-config
 
 ---
 
-### Juniper EX2300 / SRX300 — modo single-user
+### Juniper EX2300 / SRX320 — modo single-user
 
-Aplica a: `SW-EX2300-01/02`, `FW-SRX300-01/02`
+Aplica a: `SW-EX2300-01/02`, `FW-SRX320-01/02`
 
 1. Consola a `9600 8N1`.
 2. Reinicia el equipo. Cuando aparezca
@@ -562,7 +562,7 @@ console# reload
 
 ---
 
-### Juniper EX2300 / SRX300 — snapshot, USB y *format install*
+### Juniper EX2300 / SRX320 — snapshot, USB y *format install*
 
 **Caso 1 — el equipo arranca (recuperar/actualizar software):**
 
