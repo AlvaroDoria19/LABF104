@@ -15,10 +15,7 @@
 | **ID de inventario** | `RT-C2503-01` |
 | **Modelo** | Cisco 2503 (serie 2500) |
 | **Nº de serie** | 07896628 |
-| **Hostname actual** | `Router` |
 | **Hostname recomendado** | `F104-RT-2503-01` |
-| **IP de gestión** | `192.168.104.41` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
 
 ---
@@ -26,13 +23,11 @@
 ## 🔑 Acceso
 
 > Credenciales **compartidas por toda la familia «Routers Cisco»** (`RT-C2503-01/02` · `RT-C2620-01/02`).
-> Si las cambias, actualiza también los demás ficheros de la familia y el [README](../../README.md).
 
 | Dato | Valor |
 |---|---|
 | Usuario (si hay `login local`) | `<rellenar>` |
 | Contraseña de consola (`line console 0`) | `<rellenar>` |
-| Contraseña de Telnet (`line vty`) | `<rellenar>` |
 | Contraseña de `enable secret` | `<rellenar>` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
@@ -58,13 +53,13 @@
 | Dato | Valor |
 |---|---|
 | CPU | Motorola 68030, revisión N |
-| DRAM | ⚠️ **4 MB** (2 048 K principal + 2 048 K de paquetes) |
+| DRAM |  **4 MB** (2 048 K principal + 2 048 K de paquetes) |
 | Flash | **8 MB**, marcada `Read ONLY` · **sólo 396 KB libres** |
 | NVRAM | 32 KB |
 | Processor board ID | 07896628 (hw rev 00000001) |
-| LAN | 1 × Ethernet 10 Mbps **AUI DB-15** → requiere transceptor AUI→RJ-45 |
+| LAN | 1 × Ethernet 10 Mbps **AUI DB-15** |
 | WAN | 2 × Serial **DB-60** (`Serial0`, `Serial1`) |
-| RDSI | 1 × ISDN BRI (`BRI0`) — requiere NT1 externo |
+| RDSI | 1 × ISDN BRI (`BRI0`) |
 | Consola / AUX | RJ-45 · `9600 8N1` |
 
 ---
@@ -75,8 +70,8 @@
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
-| 💻 **PC del laboratorio F104** | Equipo: `<nombre-del-PC>` · Ruta: `C:\LabF104\imagenes\` | ☐ |
+| ☁️ **Google Drive del laboratorio** | [IMAGEN CISCO RTC2503-1](https://drive.google.com/drive/folders/1eTSwyY2_riDC88RjWgUmnFxhjjJlx2BP?usp=sharing) | ☐ |
+| 💻 **PC del laboratorio F104** | Equipo: `PC-1 · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
 > 💡 **La PC del laboratorio tiene todas las imágenes de sistema ya descargadas.** Es la primera
@@ -92,20 +87,7 @@
 | ⭐ [Características y protocolos](caracteristicas.md) | Qué lo hace destacar, qué protocolos soporta y qué **no**, comandos de verificación |
 | ⚡ [Chuleta de comandos](chuleta-comandos.md) | Diagnóstico y configuración de este equipo, listos para copiar |
 | 🚨 [Plan de contingencia](plan-contingencia.md) | Recuperar contraseña, recuperar el OS y respaldar la configuración |
-
 ---
 
-## 📝 Notas e historial de este equipo
-
-| Fecha | Tipo | Descripción | Por |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> Tipos: `🔧 CONFIG` · `🔴 FALLO` · `🚨 RESCATE` · `⬆️ UPGRADE` · `🧹 MANT` · `📦 PRÉSTAMO`
-> El histórico completo del laboratorio queda repartido entre las notas de cada equipo.
-
----
 
 [⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)
