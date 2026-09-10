@@ -17,8 +17,6 @@
 | **Nº de serie** | ⚠️ Por confirmar |
 | **Hostname actual** | `SW-LAB1` |
 | **Hostname recomendado** | `F104-SW-EX2300-01` |
-| **IP de gestión** | `192.168.104.31` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
 
 ---
@@ -31,8 +29,6 @@
 | Dato | Valor |
 |---|---|
 | Usuario `root` — contraseña | `admin1234` |
-| Usuario de laboratorio  ) | `labadmin` |
-| Contraseña del usuario de laboratorio | `labf104` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
 
@@ -91,19 +87,6 @@
 | ⭐ [Características y protocolos](caracteristicas.md) | Qué lo hace destacar, qué protocolos soporta y qué **no**, comandos de verificación |
 | ⚡ [Chuleta de comandos](chuleta-comandos.md) | Diagnóstico y configuración de este equipo, listos para copiar |
 | 🚨 [Plan de contingencia](plan-contingencia.md) | Recuperar contraseña, recuperar el OS y respaldar la configuración |
-
----
-
-## 📝 Notas e historial de este equipo
-
-| Fecha | Tipo | Descripción | Por |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> Tipos: `🔧 CONFIG` · `🔴 FALLO` · `🚨 RESCATE` · `⬆️ UPGRADE` · `🧹 MANT` · `📦 PRÉSTAMO`
-> El histórico completo del laboratorio queda repartido entre las notas de cada equipo.
 
 ---
 
