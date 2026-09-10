@@ -17,8 +17,6 @@
 | **Nº de serie** | ⚠️ Por confirmar |
 | **Hostname actual** | `SW-LAB2` |
 | **Hostname recomendado** | `F104-SW-EX2300-02` |
-| **IP de gestión** | `192.168.104.32` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
 
 ---
@@ -30,9 +28,9 @@
 
 | Dato | Valor |
 |---|---|
-| Usuario `root` — contraseña | `<rellenar>` |
-| Usuario de laboratorio (p. ej. `lab-admin`) | `<rellenar>` |
-| Contraseña del usuario de laboratorio | `<rellenar>` |
+| Usuario `root` — contraseña | `admin1234` |
+| Usuario de laboratorio) | `labadmin` |
+| Contraseña del usuario de laboratorio | `labf104` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
 
