@@ -30,9 +30,9 @@
 
 | Dato | Valor |
 |---|---|
-| Usuario `root` — contraseña | `<rellenar>` |
-| Usuario de laboratorio (p. ej. `lab-admin`) | `<rellenar>` |
-| Contraseña del usuario de laboratorio | `<rellenar>` |
+| Usuario `root` — contraseña | `admin1234` |
+| Usuario de laboratorio  ) | `labadmin` |
+| Contraseña del usuario de laboratorio | `labf104` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
 
