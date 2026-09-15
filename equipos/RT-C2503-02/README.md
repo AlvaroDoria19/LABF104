@@ -15,10 +15,7 @@
 | **ID de inventario** | `RT-C2503-02` |
 | **Modelo** | Cisco 2503 (serie 2500) |
 | **Nº de serie** | 06017664 |
-| **Hostname actual** | `Router` |
-| **Hostname recomendado** | `F104-RT-2503-02` |
-| **IP de gestión** | `192.168.104.42` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
+| **Hostname actual** | `RT-C2503-02r` |
 | **Estado** | 🟢 Operativo |
 
 ---
@@ -30,10 +27,10 @@
 
 | Dato | Valor |
 |---|---|
-| Usuario (si hay `login local`) | `<rellenar>` |
-| Contraseña de consola (`line console 0`) | `<rellenar>` |
-| Contraseña de Telnet (`line vty`) | `<rellenar>` |
-| Contraseña de `enable secret` | `<rellenar>` |
+| Usuario (si hay `login local`) | `N/A` |
+| Contraseña de consola (`line console 0`) | `N/A` |
+| Contraseña de Telnet (`line vty`) | `N/A` |
+| Contraseña de `enable secret` | `N/A` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
 
@@ -75,8 +72,8 @@
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
-| 💻 **PC del laboratorio F104** | Equipo: `<nombre-del-PC>` · Ruta: `C:\LabF104\imagenes\` | ☐ |
+| ☁️ **Google Drive del laboratorio** | `[IMAGENES ROUTERS](https://drive.google.com/drive/folders/13WPTIbHg_Qm4KvmR9UxTH6fvjwcnqQHr?usp=sharing)` | ☐ |
+| 💻 **PC del laboratorio F104** | Equipo: `PC-1` · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
 > 💡 **La PC del laboratorio tiene todas las imágenes de sistema ya descargadas.** Es la primera
@@ -97,17 +94,5 @@
 
 ---
 
-## 📝 Notas e historial de este equipo
-
-| Fecha | Tipo | Descripción | Por |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> Tipos: `🔧 CONFIG` · `🔴 FALLO` · `🚨 RESCATE` · `⬆️ UPGRADE` · `🧹 MANT` · `📦 PRÉSTAMO`
-> El histórico completo del laboratorio queda repartido entre las notas de cada equipo.
-
----
 
 [⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)
