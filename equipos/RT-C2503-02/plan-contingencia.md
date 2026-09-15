@@ -19,8 +19,8 @@
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
-| 💻 **PC del laboratorio F104** | Equipo: `<nombre-del-PC>` · Ruta: `C:\LabF104\imagenes\` | ☐ |
+| ☁️ **Google Drive del laboratorio** | [IMAGENES DEL ROUTER](https://drive.google.com/drive/folders/13WPTIbHg_Qm4KvmR9UxTH6fvjwcnqQHr?usp=sharing) | ☐ |
+| 💻 **PC del laboratorio F104** | Equipo: `PC-1` · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
 > 💡 **La PC del laboratorio tiene todas las imágenes de sistema ya descargadas.** Es la primera
