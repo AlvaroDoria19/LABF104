@@ -15,10 +15,7 @@
 | **ID de inventario** | `RT-C2620-01` |
 | **Modelo** | Cisco 2620 (serie 2600) |
 | **Nº de serie** | JAD061905XX (2603003192) |
-| **Hostname actual** | `R_Client` |
 | **Hostname recomendado** | `F104-RT-2620-01` |
-| **IP de gestión** | `192.168.104.43` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
 | **Interfaces detectadas** | 1 × FastEthernet · 1 × Serial · **10 × serie de baja velocidad** (sync/async) |
 | **Flash libre** | 6 466 196 bytes de 16 777 212 → ✅ **cabe una segunda imagen** |
@@ -32,10 +29,10 @@
 
 | Dato | Valor |
 |---|---|
-| Usuario (si hay `login local`) | `<rellenar>` |
-| Contraseña de consola (`line console 0`) | `<rellenar>` |
-| Contraseña de Telnet (`line vty`) | `<rellenar>` |
-| Contraseña de `enable secret` | `<rellenar>` |
+| Usuario (si hay `login local`) | `N/A` |
+| Contraseña de consola (`line console 0`) | `N/A` |
+| Contraseña de Telnet (`line vty`) | `N/A` |
+| Contraseña de `enable secret` | `N/A` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
 
@@ -74,8 +71,8 @@
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
-| 💻 **PC del laboratorio F104** | Equipo: `<nombre-del-PC>` · Ruta: `C:\LabF104\imagenes\` | ☐ |
+| ☁️ **Google Drive del laboratorio** | [IMAGENES ROUTER](https://drive.google.com/drive/folders/1XC3QRz-ewk9leXI7_Sp9qgzQ05ubQvwP?usp=drive_link)`` | ☐ |
+| 💻 **PC del laboratorio F104** | Equipo: `PC-1` · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
 > 💡 **La PC del laboratorio tiene todas las imágenes de sistema ya descargadas.** Es la primera
@@ -91,19 +88,6 @@
 | ⭐ [Características y protocolos](caracteristicas.md) | Qué lo hace destacar, qué protocolos soporta y qué **no**, comandos de verificación |
 | ⚡ [Chuleta de comandos](chuleta-comandos.md) | Diagnóstico y configuración de este equipo, listos para copiar |
 | 🚨 [Plan de contingencia](plan-contingencia.md) | Recuperar contraseña, recuperar el OS y respaldar la configuración |
-
----
-
-## 📝 Notas e historial de este equipo
-
-| Fecha | Tipo | Descripción | Por |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> Tipos: `🔧 CONFIG` · `🔴 FALLO` · `🚨 RESCATE` · `⬆️ UPGRADE` · `🧹 MANT` · `📦 PRÉSTAMO`
-> El histórico completo del laboratorio queda repartido entre las notas de cada equipo.
 
 ---
 
