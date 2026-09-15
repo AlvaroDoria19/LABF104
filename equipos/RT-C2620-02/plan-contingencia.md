@@ -19,8 +19,8 @@
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
-| 💻 **PC del laboratorio F104** | Equipo: `<nombre-del-PC>` · Ruta: `C:\LabF104\imagenes\` | ☐ |
+| ☁️ **Google Drive del laboratorio** | [IMAGENES ROUTER](https://drive.google.com/drive/folders/1gIBxVMZq-vy_PwrEEFvMTGRXhYNpMTh3?usp=drive_link)  | ☐ |
+| 💻 **PC del laboratorio F104** | Equipo: `PC-1` · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
 > 💡 **La PC del laboratorio tiene todas las imágenes de sistema ya descargadas.** Es la primera
@@ -160,27 +160,5 @@ reload
 
 ---
 
-## 🧾 Checklist de intervención
-
-Copia este bloque en las [notas del equipo](README.md#-notas-e-historial-de-este-equipo) cada vez
-que intervengas:
-
-````markdown
-### Intervención — RT-C2620-02 — AAAA-MM-DD
-
-- [ ] Aviso previo: no había práctica en curso
-- [ ] Síntoma observado: ...
-- [ ] Acceso preparado (consola / SSH / failsafe): ...
-- [ ] Configuración anterior recuperada / disponible en backups: sí / no
-- [ ] Procedimiento aplicado: contraseña / restauración de imagen / reset de fábrica
-- [ ] Imagen usada (nombre exacto): ...
-- [ ] Fuente de la imagen: Google Drive / PC del laboratorio / repositorio
-- [ ] Credenciales nuevas anotadas en la ficha y en el README: sí / no
-- [ ] Respaldo de la configuración final subido al servidor TFTP (PC-1): sí / no
-- [ ] Verificación final OK: sí / no
-- Tiempo total: ... min · Realizado por: ...
-````
-
----
 
 [⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)
