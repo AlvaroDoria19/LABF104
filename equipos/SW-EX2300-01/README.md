@@ -70,7 +70,7 @@
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
+| ☁️ **Google Drive del laboratorio** | [IMAGENES SWITCHES](https://drive.google.com/drive/folders/17xYTPvyZlfiaZ_mAXLkLurvQizFjXXq8?usp=drive_link) | ☐ |
 | 💻 **PC del laboratorio F104** | Equipo: `PC-1` · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
