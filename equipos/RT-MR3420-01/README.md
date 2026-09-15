@@ -14,13 +14,10 @@
 |---|---|
 | **ID de inventario** | `RT-MR3420-01` |
 | **Modelo** | TP-Link TL-MR3420 (OpenWRT / LEDE) |
-| **Nº de serie** | ⚠️ Por confirmar |
-| **Hostname actual** | `⚠️ Por confirmar` |
 | **Hostname recomendado** | `F104-RT-MR3420-01` |
 | **IP de gestión** | `172.16.10.1/24` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
-| **Dirección IP (LAN)** | `172.16.10.1/24` — ⚠️ fuera de la VLAN 104 de gestión |
+| **Dirección IP (LAN)** | `172.16.10.1/24`  |
 
 ---
 
@@ -29,15 +26,16 @@
 > Credenciales **compartidas por toda la familia «Routers TP-Link (OpenWRT)»** (`RT-MR3420-01/02`).
 > Si las cambias, actualiza también los demás ficheros de la familia y el [README](../../README.md).
 
+> [!IMPORTANT]  
+> Las credenciales y acceso WI-FI son exclusivas de los docentes y auxiliares, la red está oculta, se debe agregar manualmente.
 | Dato | Valor |
 |---|---|
-| Usuario (SSH y LuCI) | `<rellenar>` |
-| Contraseña de `root` | `<rellenar>` |
-| SSID de la WiFi | `<rellenar>` |
-| Contraseña WiFi (WPA2) | `<rellenar>` |
+| Usuario (SSH y LuCI) | `root` |
+| Contraseña de `root` | `REDACTED` |
+| SSID de la WiFi | `LABF104` |
+| Contraseña WiFi (WPA2) | `REDACTED` |
 
-**Sin puerto de consola externo.** El UART está dentro de la carcasa (requiere abrirla y un
-adaptador USB-TTL de 3,3 V a `115200 8N1`). El acceso normal es **SSH** y **LuCI** (web);
+El acceso normal es **SSH** y **LuCI** (web);
 para recuperar la contraseña se usa el **modo failsafe** por telnet.
 
 ---
@@ -47,13 +45,13 @@ para recuperar la contraseña se usa el **modo failsafe** por telnet.
 | Dato | Valor |
 |---|---|
 | Sistema operativo | **OpenWRT / LEDE** — rama `lede-17.01`, build `git-19.167.54478-71e2af4` |
-| Versión | Corresponde a **LEDE 17.01.7** (junio de 2019) — ⚠️ confirmar con `cat /etc/openwrt_release` |
+| Versión | Corresponde a **LEDE 17.01.7** (junio de 2019) |
 | Interfaz web | **LuCI** |
-| Kernel | ⚠️ Linux 4.4.x (rama 17.01) — confirmar con `uname -a` |
+| Kernel | Linux 4.4.x (rama 17.01)  |
 | Gestor de paquetes | `opkg` |
 | Configuración | Texto plano en `/etc/config/*`, gestionada con **UCI** |
 | Gestor de arranque | **U-Boot** de TP-Link (con recuperación TFTP en algunas revisiones) |
-| Soporte | ⚠️ **Fuera de soporte.** LEDE 17.01 terminó en 2019 y OpenWRT dejó de soportar los equipos de 4/32 MB a partir de la 19.07 |
+| Soporte |  **Fuera de soporte.** LEDE 17.01 terminó en 2019 y OpenWRT dejó de soportar los equipos de 4/32 MB a partir de la 19.07 |
 
 ---
 
@@ -61,12 +59,12 @@ para recuperar la contraseña se usa el **modo failsafe** por telnet.
 
 | Dato | Valor |
 |---|---|
-| Modelo | **TP-Link TL-MR3420** · ⚠️ revisión **v1** (deducida del firmware `TL-MR3420_V1_121123.zip` que hay en el PC del laboratorio) — confirmar con `ubus call system board` |
-| SoC | ⚠️ Atheros AR7241 a 400 MHz (revisión v1) |
-| RAM | ⚠️ 32 MB |
-| Flash | ⚠️ **4 MB** ← la limitación más importante de este equipo |
-| LAN | 4 × `10/100` RJ-45 |
-| WAN | 1 × `10/100` RJ-45 |
+| Modelo | **TP-Link TL-MR3420** ·revisión **v1.2** |
+| SoC |  Atheros AR7241 a 400 MHz (revisión v1.2) |
+| RAM | 32 MB |
+| Flash | 4 MB|
+| LAN | 4 × `10/100` RJ-45  (EL PUERTO 4 NO FUNCIONA)|
+| WAN | 1 × `10/100` RJ-45  (EL PUERTO WAN NO FUNCIONA, REEMPLAZADO POR EL 3)|
 | USB | 1 × USB 2.0 (módem 3G/4G o almacenamiento) |
 | WiFi | 802.11 b/g/n en 2,4 GHz · 2×2 MIMO · hasta 300 Mbps · 2 antenas desmontables |
 | Botones | Reset / WPS-QSS (se usa para entrar en *failsafe*) |
@@ -80,15 +78,15 @@ para recuperar la contraseña se usa el **modo failsafe** por telnet.
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
-| 💻 **PC del laboratorio F104** | Equipo: `<nombre-del-PC>` · Ruta: `C:\LabF104\imagenes\` | ☐ |
+| ☁️ **Google Drive del laboratorio** |  | ☐ |
+| 💻 **PC del laboratorio F104** | Equipo: `PC-1` · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
 > 💡 **La PC del laboratorio tiene todas las imágenes de sistema ya descargadas.** Es la primera
 > fuente a la que ir si un equipo se queda sin OS. El Google Drive es la copia externa por si esa
 > PC falla o se reinstala.
 
-> ⚠️ ⚠️ **La revisión del hardware debe coincidir exactamente** (`-v1-` en el nombre). Confírmala con `ubus call system board` antes de instalar nada. El PC del laboratorio tiene además el firmware original de TP-Link `TL-MR3420_V1_121123.zip`, por si hiciera falta volver a él.
+> ⚠️  El PC del laboratorio tiene además el firmware original de TP-Link `TL-MR3420_V1_121123.zip`, por si hiciera falta volver a él.
 
 ---
 
@@ -101,18 +99,4 @@ para recuperar la contraseña se usa el **modo failsafe** por telnet.
 | 🚨 [Plan de contingencia](plan-contingencia.md) | Recuperar contraseña, recuperar el OS y respaldar la configuración |
 
 ---
-
-## 📝 Notas e historial de este equipo
-
-| Fecha | Tipo | Descripción | Por |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> Tipos: `🔧 CONFIG` · `🔴 FALLO` · `🚨 RESCATE` · `⬆️ UPGRADE` · `🧹 MANT` · `📦 PRÉSTAMO`
-> El histórico completo del laboratorio queda repartido entre las notas de cada equipo.
-
----
-
 [⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)
