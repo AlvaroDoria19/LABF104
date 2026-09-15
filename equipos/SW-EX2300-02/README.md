@@ -72,8 +72,8 @@
 
 | Fuente | Ubicación | ¿Verificado? |
 |---|---|:--:|
-| ☁️ **Google Drive del laboratorio** | <!-- PEGAR AQUÍ EL ENLACE DE LA CARPETA --> `` | ☐ |
-| 💻 **PC del laboratorio F104** | Equipo: `<nombre-del-PC>` · Ruta: `C:\LabF104\imagenes\` | ☐ |
+| ☁️ **Google Drive del laboratorio** | [IMAGEN SWITCH](https://drive.google.com/drive/folders/1SA2y58jOnXZz3S1xraP8OIQxGdHlm-sZ?usp=drive_link)| ☐ |
+| 💻 **PC del laboratorio F104** | Equipo: `PC-1` · Ruta: `D:\LabF104\imagenes\` | ☐ |
 | 🗂️ Repositorio Git | `backups/imagenes/` | ☐ |
 
 > 💡 **La PC del laboratorio tiene todas las imágenes de sistema ya descargadas.** Es la primera
@@ -91,18 +91,4 @@
 | 🚨 [Plan de contingencia](plan-contingencia.md) | Recuperar contraseña, recuperar el OS y respaldar la configuración |
 
 ---
-
-## 📝 Notas e historial de este equipo
-
-| Fecha | Tipo | Descripción | Por |
-|---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-
-> Tipos: `🔧 CONFIG` · `🔴 FALLO` · `🚨 RESCATE` · `⬆️ UPGRADE` · `🧹 MANT` · `📦 PRÉSTAMO`
-> El histórico completo del laboratorio queda repartido entre las notas de cada equipo.
-
----
-
 [⬅️ Índice de equipos](../README.md) · [🏠 Inicio](../../README.md) · [📊 Comparativa](../../docs/01-comparativa.md) · [⚡ Chuleta general](../../docs/03-chuleta-comandos.md)
