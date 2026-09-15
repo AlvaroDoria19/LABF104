@@ -17,8 +17,6 @@
 | **Nº de serie** | ⚠️ Por confirmar |
 | **Hostname actual** | `4500G` |
 | **Hostname recomendado** | `F104-SW-4500G-01` |
-| **IP de gestión** | `192.168.104.11` |
-| **Ubicación (rack / posición)** | `<rellenar>` |
 | **Estado** | 🟢 Operativo |
 
 ---
