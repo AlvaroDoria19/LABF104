@@ -26,9 +26,9 @@
 
 | Dato | Valor |
 |---|---|
-| Usuario (si hay `login local`) | `<rellenar>` |
-| Contraseña de consola (`line console 0`) | `<rellenar>` |
-| Contraseña de `enable secret` | `<rellenar>` |
+| Usuario (si hay `login local`) | `N/A` |
+| Contraseña de consola (`line console 0`) | `N/A` |
+| Contraseña de `enable secret` | `N/A` |
 
 **Consola:** `9600` baudios · 8 bits · sin paridad · 1 bit de stop · sin control de flujo
 
